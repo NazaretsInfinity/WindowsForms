@@ -101,7 +101,7 @@
             this.toolStripSeparator1,
             this.showDateToolStripMenuItem});
             this.ContextMenu.Name = "ContextMenu";
-            this.ContextMenu.Size = new System.Drawing.Size(147, 34);
+            this.ContextMenu.Size = new System.Drawing.Size(211, 138);
             // 
             // toolStripSeparator1
             // 

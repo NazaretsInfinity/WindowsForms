@@ -63,20 +63,18 @@ namespace Clock
             notifyIconSystemTray.Text = labelTime.Text;
         }
 
-
-
         private void notifyIconSystemTray_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
             {
-                if (ContextMenu.Visible == false) ContextMenu.Show(this.Left,this.Top);
+                if (ContextMenu.Visible == false) ContextMenu.Show(Screen.PrimaryScreen.Bounds.Width-300, Screen.PrimaryScreen.Bounds.Height);
                 else ContextMenu.Close();
             }
         }
 
         private void ShowDateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            cbShowDate.Checked = cbShowDate.Checked ? false : true;
+            cbShowDate.Checked = !cbShowDate.Checked;
         }
     }
 }
