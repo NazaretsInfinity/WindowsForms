@@ -104,6 +104,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(7);
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Clock";
             this.TransparencyKey = System.Drawing.Color.RosyBrown;
             this.Load += new System.EventHandler(this.labelTime_DoubleClick);

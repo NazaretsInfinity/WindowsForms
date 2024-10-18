@@ -15,7 +15,10 @@ namespace Clock
         public MainForm()
         {
             InitializeComponent();
-            //this.TransparencyKey = Color.Empty;
+            this.Left = Screen.PrimaryScreen.Bounds.Width - this.Width;
+            this.Top = 0;
+            // this.StartPosition = FormStartPosition.Manual;
+            //this.Location = new Point(Screen.PrimaryScreen.Bounds.Width - this.Width, 0);  
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -24,18 +27,17 @@ namespace Clock
             if(cbShowDate.Checked)
             {
                 labelTime.Text += $"\n{DateTime.Today.ToString("dd.MM.yyyy")}";
-               
             }
         }
         private void SetVisibility(bool visible)
         {
             this.TransparencyKey = visible ? Color.Empty : this.BackColor;
             this.FormBorderStyle = visible ? FormBorderStyle.FixedToolWindow :FormBorderStyle.None;
-            this.ShowInTaskbar = visible;
+            //this.ShowInTaskbar = visible;
             cbShowDate.Visible = visible;
             HideControls.Visible = visible;
             labelTime.BackColor = visible ? Color.Empty : Color.GhostWhite;
-
+            
         }
 
 
