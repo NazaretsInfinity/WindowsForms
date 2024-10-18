@@ -73,7 +73,7 @@ namespace Clock
 
         private void ShowDateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            cbShowDate.Checked = true;
+            cbShowDate.Checked = cbShowDate.Checked ? false : true;
         }
     }
 }
