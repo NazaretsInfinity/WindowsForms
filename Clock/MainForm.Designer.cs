@@ -37,7 +37,6 @@
             this.notifyIconSystemTray = new System.Windows.Forms.NotifyIcon(this.components);
             this.ContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.nextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ContextMenu.SuspendLayout();
             this.SuspendLayout();
@@ -100,26 +99,19 @@
             this.ContextMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.ContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator1,
-            this.nextToolStripMenuItem,
             this.showDateToolStripMenuItem});
             this.ContextMenu.Name = "ContextMenu";
-            this.ContextMenu.Size = new System.Drawing.Size(147, 58);
+            this.ContextMenu.Size = new System.Drawing.Size(147, 34);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(143, 6);
-            // 
-            // nextToolStripMenuItem
-            // 
-            this.nextToolStripMenuItem.Name = "nextToolStripMenuItem";
-            this.nextToolStripMenuItem.Size = new System.Drawing.Size(146, 24);
-            this.nextToolStripMenuItem.Text = "next";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(207, 6);
             // 
             // showDateToolStripMenuItem
             // 
             this.showDateToolStripMenuItem.Name = "showDateToolStripMenuItem";
-            this.showDateToolStripMenuItem.Size = new System.Drawing.Size(146, 24);
+            this.showDateToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.showDateToolStripMenuItem.Text = "ShowDate";
             this.showDateToolStripMenuItem.Click += new System.EventHandler(this.ShowDateToolStripMenuItem_Click);
             // 
@@ -128,7 +120,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 34F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Olive;
-            this.ClientSize = new System.Drawing.Size(528, 246);
+            this.ClientSize = new System.Drawing.Size(528, 268);
             this.Controls.Add(this.HideControls);
             this.Controls.Add(this.cbShowDate);
             this.Controls.Add(this.labelTime);
@@ -155,7 +147,6 @@
         private System.Windows.Forms.ContextMenuStrip ContextMenu;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem showDateToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nextToolStripMenuItem;
     }
 }
 
