@@ -73,7 +73,7 @@ namespace Clock
 
         private void ShowDateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DateTextBox.Text = $"\n{DateTime.Today.ToString("dd.MM.yyyy")}";
+            cbShowDate.Checked = true;
         }
     }
 }
