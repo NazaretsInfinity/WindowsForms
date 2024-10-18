@@ -41,7 +41,10 @@ namespace Clock
             //this.ShowInTaskbar = visible;
             cbShowDate.Visible = visible;
             HideControls.Visible = visible;
-            labelTime.BackColor = visible ? Color.Empty : Color.GhostWhite;
+            labelTime.BackColor = visible ? Color.LightGoldenrodYellow: Color.Empty;
+            labelTime.Left = visible ? 26 : this.Width - labelTime.Width;
+            labelTime.Top = visible ? 21 : 0;
+           
         }
 
 

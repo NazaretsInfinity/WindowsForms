@@ -37,15 +37,15 @@
             this.notifyIconSystemTray = new System.Windows.Forms.NotifyIcon(this.components);
             this.ContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.showDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelTime
             // 
             this.labelTime.AutoSize = true;
-            this.labelTime.BackColor = System.Drawing.Color.LightYellow;
+            this.labelTime.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.labelTime.Font = new System.Drawing.Font("Niagara Engraved", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTime.ForeColor = System.Drawing.Color.OliveDrab;
             this.labelTime.Location = new System.Drawing.Point(26, 21);
@@ -66,11 +66,11 @@
             // 
             this.cbShowDate.AutoSize = true;
             this.cbShowDate.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.cbShowDate.Font = new System.Drawing.Font("MV Boli", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbShowDate.Font = new System.Drawing.Font("MV Boli", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbShowDate.ForeColor = System.Drawing.Color.LemonChiffon;
             this.cbShowDate.Location = new System.Drawing.Point(25, 136);
             this.cbShowDate.Name = "cbShowDate";
-            this.cbShowDate.Size = new System.Drawing.Size(183, 41);
+            this.cbShowDate.Size = new System.Drawing.Size(192, 41);
             this.cbShowDate.TabIndex = 1;
             this.cbShowDate.Text = "Show Date";
             this.cbShowDate.UseVisualStyleBackColor = false;
@@ -110,18 +110,18 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(143, 6);
             // 
+            // nextToolStripMenuItem
+            // 
+            this.nextToolStripMenuItem.Name = "nextToolStripMenuItem";
+            this.nextToolStripMenuItem.Size = new System.Drawing.Size(146, 24);
+            this.nextToolStripMenuItem.Text = "next";
+            // 
             // showDateToolStripMenuItem
             // 
             this.showDateToolStripMenuItem.Name = "showDateToolStripMenuItem";
             this.showDateToolStripMenuItem.Size = new System.Drawing.Size(146, 24);
             this.showDateToolStripMenuItem.Text = "ShowDate";
             this.showDateToolStripMenuItem.Click += new System.EventHandler(this.ShowDateToolStripMenuItem_Click);
-            // 
-            // nextToolStripMenuItem
-            // 
-            this.nextToolStripMenuItem.Name = "nextToolStripMenuItem";
-            this.nextToolStripMenuItem.Size = new System.Drawing.Size(146, 24);
-            this.nextToolStripMenuItem.Text = "next";
             // 
             // MainForm
             // 
