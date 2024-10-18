@@ -35,6 +35,10 @@
             this.cbShowDate = new System.Windows.Forms.CheckBox();
             this.HideControls = new System.Windows.Forms.Button();
             this.notifyIconSystemTray = new System.Windows.Forms.NotifyIcon(this.components);
+            this.ContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.oogaBoogaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.yoiyoiouyoiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelTime
@@ -87,9 +91,29 @@
             this.notifyIconSystemTray.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIconSystemTray.Icon")));
             this.notifyIconSystemTray.Text = "ClockIcon";
             this.notifyIconSystemTray.Visible = true;
-            this.notifyIconSystemTray.Click += new System.EventHandler(this.HideControls_Click);
-            this.notifyIconSystemTray.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIconSystemTray_MouseDoubleClick);
+            this.notifyIconSystemTray.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIconSystemTray_MouseClick);
             this.notifyIconSystemTray.MouseMove += new System.Windows.Forms.MouseEventHandler(this.notifyIconSystemTray_MouseMove);
+            // 
+            // ContextMenu
+            // 
+            this.ContextMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.ContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.oogaBoogaToolStripMenuItem,
+            this.yoiyoiouyoiToolStripMenuItem});
+            this.ContextMenu.Name = "ContextMenu";
+            this.ContextMenu.Size = new System.Drawing.Size(211, 84);
+            // 
+            // oogaBoogaToolStripMenuItem
+            // 
+            this.oogaBoogaToolStripMenuItem.Name = "oogaBoogaToolStripMenuItem";
+            this.oogaBoogaToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.oogaBoogaToolStripMenuItem.Text = "ooga booga";
+            // 
+            // yoiyoiouyoiToolStripMenuItem
+            // 
+            this.yoiyoiouyoiToolStripMenuItem.Name = "yoiyoiouyoiToolStripMenuItem";
+            this.yoiyoiouyoiToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            this.yoiyoiouyoiToolStripMenuItem.Text = "yoiyoiouyoi";
             // 
             // MainForm
             // 
@@ -108,6 +132,7 @@
             this.Text = "Clock";
             this.TransparencyKey = System.Drawing.Color.RosyBrown;
             this.Load += new System.EventHandler(this.labelTime_DoubleClick);
+            this.ContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -120,6 +145,9 @@
         private System.Windows.Forms.CheckBox cbShowDate;
         private System.Windows.Forms.Button HideControls;
         private System.Windows.Forms.NotifyIcon notifyIconSystemTray;
+        private System.Windows.Forms.ContextMenuStrip ContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem oogaBoogaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem yoiyoiouyoiToolStripMenuItem;
     }
 }
 

@@ -56,9 +56,15 @@ namespace Clock
             notifyIconSystemTray.Text = labelTime.Text;
         }
 
-        private void notifyIconSystemTray_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
 
+
+        private void notifyIconSystemTray_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                if (ContextMenu.Visible == false) ContextMenu.Show(this.Left,this.Top);
+                else ContextMenu.Close();
+            }
         }
     }
 }
