@@ -37,23 +37,23 @@
             this.notifyIconSystemTray = new System.Windows.Forms.NotifyIcon(this.components);
             this.ContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.DateTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.showDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelTime
             // 
             this.labelTime.AutoSize = true;
-            this.labelTime.BackColor = System.Drawing.Color.Silver;
-            this.labelTime.Font = new System.Drawing.Font("MV Boli", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTime.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.labelTime.BackColor = System.Drawing.Color.LightYellow;
+            this.labelTime.Font = new System.Drawing.Font("Niagara Engraved", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTime.ForeColor = System.Drawing.Color.OliveDrab;
             this.labelTime.Location = new System.Drawing.Point(26, 21);
             this.labelTime.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(195, 55);
+            this.labelTime.Size = new System.Drawing.Size(149, 64);
             this.labelTime.TabIndex = 0;
-            this.labelTime.Text = "Time <3";
+            this.labelTime.Text = "Time ✿";
             this.labelTime.DoubleClick += new System.EventHandler(this.labelTime_DoubleClick);
             // 
             // timer1
@@ -65,10 +65,10 @@
             // cbShowDate
             // 
             this.cbShowDate.AutoSize = true;
-            this.cbShowDate.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.cbShowDate.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.cbShowDate.Font = new System.Drawing.Font("MV Boli", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbShowDate.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.cbShowDate.Location = new System.Drawing.Point(25, 119);
+            this.cbShowDate.ForeColor = System.Drawing.Color.LemonChiffon;
+            this.cbShowDate.Location = new System.Drawing.Point(25, 136);
             this.cbShowDate.Name = "cbShowDate";
             this.cbShowDate.Size = new System.Drawing.Size(183, 41);
             this.cbShowDate.TabIndex = 1;
@@ -77,9 +77,9 @@
             // 
             // HideControls
             // 
-            this.HideControls.BackColor = System.Drawing.Color.DarkGray;
-            this.HideControls.ForeColor = System.Drawing.Color.DarkBlue;
-            this.HideControls.Location = new System.Drawing.Point(25, 166);
+            this.HideControls.BackColor = System.Drawing.Color.Olive;
+            this.HideControls.ForeColor = System.Drawing.Color.LightYellow;
+            this.HideControls.Location = new System.Drawing.Point(25, 183);
             this.HideControls.Name = "HideControls";
             this.HideControls.Size = new System.Drawing.Size(151, 51);
             this.HideControls.TabIndex = 2;
@@ -100,35 +100,35 @@
             this.ContextMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.ContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator1,
-            this.DateTextBox,
+            this.nextToolStripMenuItem,
             this.showDateToolStripMenuItem});
             this.ContextMenu.Name = "ContextMenu";
-            this.ContextMenu.Size = new System.Drawing.Size(161, 63);
+            this.ContextMenu.Size = new System.Drawing.Size(147, 58);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
-            // 
-            // DateTextBox
-            // 
-            this.DateTextBox.Enabled = false;
-            this.DateTextBox.Name = "DateTextBox";
-            this.DateTextBox.Size = new System.Drawing.Size(100, 27);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(143, 6);
             // 
             // showDateToolStripMenuItem
             // 
             this.showDateToolStripMenuItem.Name = "showDateToolStripMenuItem";
-            this.showDateToolStripMenuItem.Size = new System.Drawing.Size(160, 24);
+            this.showDateToolStripMenuItem.Size = new System.Drawing.Size(146, 24);
             this.showDateToolStripMenuItem.Text = "ShowDate";
             this.showDateToolStripMenuItem.Click += new System.EventHandler(this.ShowDateToolStripMenuItem_Click);
+            // 
+            // nextToolStripMenuItem
+            // 
+            this.nextToolStripMenuItem.Name = "nextToolStripMenuItem";
+            this.nextToolStripMenuItem.Size = new System.Drawing.Size(146, 24);
+            this.nextToolStripMenuItem.Text = "next";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 34F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(528, 390);
+            this.BackColor = System.Drawing.Color.Olive;
+            this.ClientSize = new System.Drawing.Size(528, 246);
             this.Controls.Add(this.HideControls);
             this.Controls.Add(this.cbShowDate);
             this.Controls.Add(this.labelTime);
@@ -140,7 +140,6 @@
             this.Text = "Clock";
             this.TransparencyKey = System.Drawing.Color.RosyBrown;
             this.ContextMenu.ResumeLayout(false);
-            this.ContextMenu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,8 +154,8 @@
         private System.Windows.Forms.NotifyIcon notifyIconSystemTray;
         private System.Windows.Forms.ContextMenuStrip ContextMenu;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripTextBox DateTextBox;
         private System.Windows.Forms.ToolStripMenuItem showDateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nextToolStripMenuItem;
     }
 }
 
