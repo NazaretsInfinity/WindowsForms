@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,11 +16,13 @@ namespace Clock
         public MainForm()
         {
             InitializeComponent();
+            this.TransparencyKey = Color.Empty;
             this.Left = Screen.PrimaryScreen.Bounds.Width - this.Width;
             this.Top = 0;
             // this.StartPosition = FormStartPosition.Manual;
             //this.Location = new Point(Screen.PrimaryScreen.Bounds.Width - this.Width, 0);  
         }
+
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -29,22 +32,23 @@ namespace Clock
                 labelTime.Text += $"\n{DateTime.Today.ToString("dd.MM.yyyy")}";
             }
         }
+
+
         private void SetVisibility(bool visible)
         {
             this.TransparencyKey = visible ? Color.Empty : this.BackColor;
-            this.FormBorderStyle = visible ? FormBorderStyle.FixedToolWindow :FormBorderStyle.None;
+            this.FormBorderStyle = visible ? FormBorderStyle.FixedToolWindow : FormBorderStyle.None;
             //this.ShowInTaskbar = visible;
             cbShowDate.Visible = visible;
             HideControls.Visible = visible;
             labelTime.BackColor = visible ? Color.Empty : Color.GhostWhite;
-            
         }
 
 
         private void HideControls_Click(object sender, EventArgs e)
         {
-               SetVisibility(false);
-            notifyIconSystemTray.ShowBalloonTip(3, "Crucial information", "To return this fignya click 2 times at the time", ToolTipIcon.Info);
+            SetVisibility(false);
+            notifyIconSystemTray.ShowBalloonTip(3, "Crucial information", "To go back click 2 times at the time", ToolTipIcon.Info);
         }
 
         private void labelTime_DoubleClick(object sender, EventArgs e)
@@ -65,6 +69,11 @@ namespace Clock
                 if (ContextMenu.Visible == false) ContextMenu.Show(this.Left,this.Top);
                 else ContextMenu.Close();
             }
+        }
+
+        private void ShowDateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DateTextBox.Text = $"\n{DateTime.Today.ToString("dd.MM.yyyy")}";
         }
     }
 }

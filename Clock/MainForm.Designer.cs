@@ -36,8 +36,9 @@
             this.HideControls = new System.Windows.Forms.Button();
             this.notifyIconSystemTray = new System.Windows.Forms.NotifyIcon(this.components);
             this.ContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.oogaBoogaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.yoiyoiouyoiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.DateTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.showDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,7 +85,7 @@
             this.HideControls.TabIndex = 2;
             this.HideControls.Text = "HideControls";
             this.HideControls.UseVisualStyleBackColor = false;
-            this.HideControls.Click += new System.EventHandler(this.HideControls_Click);
+            this.HideControls.MouseClick += new System.Windows.Forms.MouseEventHandler(this.HideControls_Click);
             // 
             // notifyIconSystemTray
             // 
@@ -98,22 +99,29 @@
             // 
             this.ContextMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.ContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.oogaBoogaToolStripMenuItem,
-            this.yoiyoiouyoiToolStripMenuItem});
+            this.toolStripSeparator1,
+            this.DateTextBox,
+            this.showDateToolStripMenuItem});
             this.ContextMenu.Name = "ContextMenu";
-            this.ContextMenu.Size = new System.Drawing.Size(211, 84);
+            this.ContextMenu.Size = new System.Drawing.Size(161, 63);
             // 
-            // oogaBoogaToolStripMenuItem
+            // toolStripSeparator1
             // 
-            this.oogaBoogaToolStripMenuItem.Name = "oogaBoogaToolStripMenuItem";
-            this.oogaBoogaToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
-            this.oogaBoogaToolStripMenuItem.Text = "ooga booga";
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
             // 
-            // yoiyoiouyoiToolStripMenuItem
+            // DateTextBox
             // 
-            this.yoiyoiouyoiToolStripMenuItem.Name = "yoiyoiouyoiToolStripMenuItem";
-            this.yoiyoiouyoiToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
-            this.yoiyoiouyoiToolStripMenuItem.Text = "yoiyoiouyoi";
+            this.DateTextBox.Enabled = false;
+            this.DateTextBox.Name = "DateTextBox";
+            this.DateTextBox.Size = new System.Drawing.Size(100, 27);
+            // 
+            // showDateToolStripMenuItem
+            // 
+            this.showDateToolStripMenuItem.Name = "showDateToolStripMenuItem";
+            this.showDateToolStripMenuItem.Size = new System.Drawing.Size(160, 24);
+            this.showDateToolStripMenuItem.Text = "ShowDate";
+            this.showDateToolStripMenuItem.Click += new System.EventHandler(this.ShowDateToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -131,8 +139,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Clock";
             this.TransparencyKey = System.Drawing.Color.RosyBrown;
-            this.Load += new System.EventHandler(this.labelTime_DoubleClick);
             this.ContextMenu.ResumeLayout(false);
+            this.ContextMenu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -146,8 +154,9 @@
         private System.Windows.Forms.Button HideControls;
         private System.Windows.Forms.NotifyIcon notifyIconSystemTray;
         private System.Windows.Forms.ContextMenuStrip ContextMenu;
-        private System.Windows.Forms.ToolStripMenuItem oogaBoogaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem yoiyoiouyoiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripTextBox DateTextBox;
+        private System.Windows.Forms.ToolStripMenuItem showDateToolStripMenuItem;
     }
 }
 
