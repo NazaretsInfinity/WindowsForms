@@ -49,6 +49,7 @@
             this.cbShowDate = new System.Windows.Forms.CheckBox();
             this.HideControls = new System.Windows.Forms.Button();
             this.notifyIconSystemTray = new System.Windows.Forms.NotifyIcon(this.components);
+            this.Save = new System.Windows.Forms.Button();
             this.ContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,7 +84,7 @@
             this.toolStripSeparator4,
             this.closeToolStripMenuItem});
             this.ContextMenu.Name = "ContextMenu";
-            this.ContextMenu.Size = new System.Drawing.Size(250, 224);
+            this.ContextMenu.Size = new System.Drawing.Size(250, 196);
             // 
             // topMostToolStripMenuItem
             // 
@@ -131,14 +132,14 @@
             // foregroundColorToolStripMenuItem
             // 
             this.foregroundColorToolStripMenuItem.Name = "foregroundColorToolStripMenuItem";
-            this.foregroundColorToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.foregroundColorToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.foregroundColorToolStripMenuItem.Text = "Foreground color";
             this.foregroundColorToolStripMenuItem.Click += new System.EventHandler(this.foregroundColorToolStripMenuItem_Click);
             // 
             // backgroundColorToolStripMenuItem
             // 
             this.backgroundColorToolStripMenuItem.Name = "backgroundColorToolStripMenuItem";
-            this.backgroundColorToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.backgroundColorToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.backgroundColorToolStripMenuItem.Text = "Background color";
             this.backgroundColorToolStripMenuItem.Click += new System.EventHandler(this.backgroundColorToolStripMenuItem_Click);
             // 
@@ -147,6 +148,7 @@
             this.fontsToolStripMenuItem.Name = "fontsToolStripMenuItem";
             this.fontsToolStripMenuItem.Size = new System.Drawing.Size(249, 24);
             this.fontsToolStripMenuItem.Text = "Fonts";
+            this.fontsToolStripMenuItem.Click += new System.EventHandler(this.fontsToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
@@ -155,9 +157,11 @@
             // 
             // loadOnWindowsStartupToolStripMenuItem
             // 
+            this.loadOnWindowsStartupToolStripMenuItem.CheckOnClick = true;
             this.loadOnWindowsStartupToolStripMenuItem.Name = "loadOnWindowsStartupToolStripMenuItem";
             this.loadOnWindowsStartupToolStripMenuItem.Size = new System.Drawing.Size(249, 24);
             this.loadOnWindowsStartupToolStripMenuItem.Text = "Load on Windows Startup";
+            this.loadOnWindowsStartupToolStripMenuItem.Click += new System.EventHandler(this.loadOnWindowsStartupToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
@@ -211,12 +215,25 @@
             this.notifyIconSystemTray.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIconSystemTray_MouseClick);
             this.notifyIconSystemTray.MouseMove += new System.Windows.Forms.MouseEventHandler(this.notifyIconSystemTray_MouseMove);
             // 
+            // Save
+            // 
+            this.Save.BackColor = System.Drawing.Color.Olive;
+            this.Save.ForeColor = System.Drawing.Color.LightYellow;
+            this.Save.Location = new System.Drawing.Point(185, 21);
+            this.Save.Name = "Save";
+            this.Save.Size = new System.Drawing.Size(143, 43);
+            this.Save.TabIndex = 3;
+            this.Save.Text = "Save";
+            this.Save.UseVisualStyleBackColor = false;
+            this.Save.Click += new System.EventHandler(this.Save_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 34F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Olive;
             this.ClientSize = new System.Drawing.Size(528, 268);
+            this.Controls.Add(this.Save);
             this.Controls.Add(this.HideControls);
             this.Controls.Add(this.cbShowDate);
             this.Controls.Add(this.labelTime);
@@ -253,6 +270,7 @@
         private System.Windows.Forms.Label labelTime;
         private System.Windows.Forms.ToolStripMenuItem foregroundColorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem backgroundColorToolStripMenuItem;
+        private System.Windows.Forms.Button Save;
     }
 }
 

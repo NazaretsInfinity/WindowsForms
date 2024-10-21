@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Win32;
 
 namespace Clock
 {
@@ -15,16 +16,18 @@ namespace Clock
     {
         ColorDialog backgroundColorDialog;
         ColorDialog foregroundColorDialog;
+        FontDialog fontDialog;
         public MainForm()
         {
             InitializeComponent();
             this.TransparencyKey = Color.Empty;
-            //this.Left = Screen.PrimaryScreen.Bounds.Width - this.Width;
+            this.Left = Screen.PrimaryScreen.Bounds.Width - this.Width;
             this.Top = 0;
             SetVisibility(false);
            
            backgroundColorDialog = new ColorDialog();
            foregroundColorDialog = new ColorDialog();
+            fontDialog = new FontDialog();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -122,6 +125,34 @@ namespace Clock
             {
                 labelTime.BackColor = backgroundColorDialog.Color;
             }
+        }
+
+        private void fontsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(fontDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                labelTime.Font = fontDialog.Font;
+            }
+        }
+
+        private void loadOnWindowsStartupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RegistryKey register = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            if (loadOnWindowsStartupToolStripMenuItem.Checked)
+            {
+                register.SetValue("THIS ONE", Application.ExecutablePath);
+                MessageBox.Show("Enabled", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);             
+            }
+            else 
+            {
+                register.DeleteValue("THIS ONE");
+                MessageBox.Show("Disabled", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void Save_Click(object sender, EventArgs e)
+        {
+          
         }
     }
 }
