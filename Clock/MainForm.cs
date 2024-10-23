@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Win32;
+using System.IO;
+using System.Reflection;
 
 namespace Clock
 {
@@ -16,10 +18,11 @@ namespace Clock
     {
         ColorDialog backgroundColorDialog;
         ColorDialog foregroundColorDialog;
-        FontDialog fontDialog;
+        FontChooser chooseFontDialog;
         public MainForm()
         {
             InitializeComponent();
+            SetWorkDirectory();
             this.TransparencyKey = Color.Empty;
             this.Left = Screen.PrimaryScreen.Bounds.Width - this.Width;
             this.Top = 0;
@@ -27,7 +30,18 @@ namespace Clock
            
            backgroundColorDialog = new ColorDialog();
            foregroundColorDialog = new ColorDialog();
-            fontDialog = new FontDialog();
+           chooseFontDialog = new FontChooser();
+           // MessageBox.Show($"{Assembly.GetEntryAssembly().Location}", "Message", MessageBoxButtons.OK);
+        }
+
+        void SetWorkDirectory()
+        {
+            string location = Assembly.GetEntryAssembly().Location; // full address to exe file
+            string path = Path.GetDirectoryName(location); //from address we extract the way to file
+           //MessageBox.Show(Directory.GetCurrentDirectory());
+            Directory.SetCurrentDirectory($"{path}\\..\\..\\Fonts");
+
+            //MessageBox.Show(Directory.GetCurrentDirectory());
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -42,16 +56,14 @@ namespace Clock
         private void SetVisibility(bool visible)
         {
             this.TransparencyKey = visible ? Color.Empty : this.BackColor;
-            this.FormBorderStyle = visible ? FormBorderStyle.FixedToolWindow : FormBorderStyle.None;
+            this.FormBorderStyle = visible ? FormBorderStyle.Sizable : FormBorderStyle.None;
             //this.ShowInTaskbar = visible;
             cbShowDate.Visible = visible;
             HideControls.Visible = visible;
-            labelTime.BackColor = visible ? Color.LightGoldenrodYellow: Color.LightYellow;
-            labelTime.Left = visible ? 26 : this.Width - labelTime.Width;
+            labelTime.Left = visible ? 26 : this.Width - labelTime.Width - 20;
             labelTime.Top = visible ? 21 : 0;
            
         }
-
 
         private void HideControls_Click(object sender, EventArgs e)
         {
@@ -129,9 +141,9 @@ namespace Clock
 
         private void fontsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(fontDialog.ShowDialog(this) == DialogResult.OK)
+            if(chooseFontDialog.ShowDialog(this) == DialogResult.OK)
             {
-                labelTime.Font = fontDialog.Font;
+                labelTime.Font = chooseFontDialog.ChosenFont;
             }
         }
 
@@ -148,11 +160,6 @@ namespace Clock
                 register.DeleteValue("THIS ONE");
                 MessageBox.Show("Disabled", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-        }
-
-        private void Save_Click(object sender, EventArgs e)
-        {
-          
         }
     }
 }
