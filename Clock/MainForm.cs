@@ -27,7 +27,9 @@ namespace Clock
             this.Left = Screen.PrimaryScreen.Bounds.Width - this.Width;
             this.Top = 0;
             SetVisibility(false);
+            labelTime.ForeColor = Properties.Settings.Default.MyForeColor;
            
+
            backgroundColorDialog = new ColorDialog();
            foregroundColorDialog = new ColorDialog();
            chooseFontDialog = new FontChooser();
@@ -129,6 +131,7 @@ namespace Clock
             if(foregroundColorDialog.ShowDialog(this) == DialogResult.OK)
             {
                 labelTime.ForeColor = foregroundColorDialog.Color;
+                Properties.Settings.Default.MyForeColor = foregroundColorDialog.Color;
             }
         }
 
@@ -163,6 +166,10 @@ namespace Clock
             }
         }
 
-        // Here .
+        private void SaveB_Click(object sender, EventArgs e)
+        {
+         MessageBox.Show("Changes Saved", "Saving", MessageBoxButtons.OK, MessageBoxIcon.Information);
+         Properties.Settings.Default.Save();
+        }
     }
 }

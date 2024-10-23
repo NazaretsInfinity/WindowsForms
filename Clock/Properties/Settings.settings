@@ -2,8 +2,8 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Clock.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="ForeColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="MyForeColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Olive</Value>
     </Setting>
   </Settings>
 </SettingsFile>

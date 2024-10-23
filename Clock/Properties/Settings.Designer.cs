@@ -25,12 +25,13 @@ namespace Clock.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Drawing.Color ForeColor {
+        [global::System.Configuration.DefaultSettingValueAttribute("Olive")]
+        public global::System.Drawing.Color MyForeColor {
             get {
-                return ((global::System.Drawing.Color)(this["ForeColor"]));
+                return ((global::System.Drawing.Color)(this["MyForeColor"]));
             }
             set {
-                this["ForeColor"] = value;
+                this["MyForeColor"] = value;
             }
         }
     }

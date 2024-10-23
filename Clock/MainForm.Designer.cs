@@ -225,6 +225,7 @@
             this.SaveB.TabIndex = 3;
             this.SaveB.Text = "Save";
             this.SaveB.UseVisualStyleBackColor = false;
+            this.SaveB.Click += new System.EventHandler(this.SaveB_Click);
             // 
             // MainForm
             // 
