@@ -26,9 +26,10 @@ namespace Clock
             this.TransparencyKey = Color.Empty;
             this.Left = Screen.PrimaryScreen.Bounds.Width - this.Width;
             this.Top = 0;
-            labelTime.ForeColor = Properties.Settings.Default.MyForeColor;
-            labelTime.BackColor = Properties.Settings.Default.MyBackColor;  
-          
+
+
+            labelTime.ForeColor  = cbShowDate.ForeColor = HideControls.ForeColor = SaveB.ForeColor = Properties.Settings.Default.MyForeColor;
+            labelTime.BackColor = this.BackColor = cbShowDate.BackColor = HideControls.BackColor = SaveB.BackColor = Properties.Settings.Default.MyBackColor;  
             SetVisibility(false);
 
            backgroundColorDialog = new ColorDialog();
