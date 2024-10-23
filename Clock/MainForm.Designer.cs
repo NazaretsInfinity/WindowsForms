@@ -49,6 +49,7 @@
             this.cbShowDate = new System.Windows.Forms.CheckBox();
             this.HideControls = new System.Windows.Forms.Button();
             this.notifyIconSystemTray = new System.Windows.Forms.NotifyIcon(this.components);
+            this.SaveB = new System.Windows.Forms.Button();
             this.ContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -214,12 +215,24 @@
             this.notifyIconSystemTray.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIconSystemTray_MouseClick);
             this.notifyIconSystemTray.MouseMove += new System.Windows.Forms.MouseEventHandler(this.notifyIconSystemTray_MouseMove);
             // 
+            // SaveB
+            // 
+            this.SaveB.BackColor = System.Drawing.Color.Olive;
+            this.SaveB.ForeColor = System.Drawing.Color.LightYellow;
+            this.SaveB.Location = new System.Drawing.Point(182, 183);
+            this.SaveB.Name = "SaveB";
+            this.SaveB.Size = new System.Drawing.Size(94, 51);
+            this.SaveB.TabIndex = 3;
+            this.SaveB.Text = "Save";
+            this.SaveB.UseVisualStyleBackColor = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 34F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Olive;
-            this.ClientSize = new System.Drawing.Size(314, 268);
+            this.ClientSize = new System.Drawing.Size(322, 268);
+            this.Controls.Add(this.SaveB);
             this.Controls.Add(this.HideControls);
             this.Controls.Add(this.cbShowDate);
             this.Controls.Add(this.labelTime);
@@ -256,6 +269,7 @@
         private System.Windows.Forms.Label labelTime;
         private System.Windows.Forms.ToolStripMenuItem foregroundColorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem backgroundColorToolStripMenuItem;
+        private System.Windows.Forms.Button SaveB;
     }
 }
 

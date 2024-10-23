@@ -60,6 +60,7 @@ namespace Clock
             //this.ShowInTaskbar = visible;
             cbShowDate.Visible = visible;
             HideControls.Visible = visible;
+            SaveB.Visible = visible;
             labelTime.Left = visible ? 26 : this.Width - labelTime.Width - 20;
             labelTime.Top = visible ? 21 : 0;
            
@@ -161,5 +162,7 @@ namespace Clock
                 MessageBox.Show("Disabled", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        // Here .
     }
 }
