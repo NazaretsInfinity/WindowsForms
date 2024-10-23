@@ -150,7 +150,7 @@ namespace Clock
         private void loadOnWindowsStartupToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RegistryKey register = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-            if (loadOnWindowsStartupToolStripMenuItem.Checked)
+            if (!(register.GetValueNames().Contains("THIS ONE")))
             {
                 register.SetValue("THIS ONE", Application.ExecutablePath);
                 MessageBox.Show("Enabled", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);             
