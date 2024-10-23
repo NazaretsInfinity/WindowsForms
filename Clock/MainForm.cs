@@ -26,9 +26,10 @@ namespace Clock
             this.TransparencyKey = Color.Empty;
             this.Left = Screen.PrimaryScreen.Bounds.Width - this.Width;
             this.Top = 0;
-            SetVisibility(false);
             labelTime.ForeColor = Properties.Settings.Default.MyForeColor;
-           
+            labelTime.BackColor = Properties.Settings.Default.MyBackColor;  
+          
+            SetVisibility(false);
 
            backgroundColorDialog = new ColorDialog();
            foregroundColorDialog = new ColorDialog();
@@ -126,6 +127,8 @@ namespace Clock
             }
         }
 
+
+        // LABEL APPEARANCE EVENTS
         private void foregroundColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if(foregroundColorDialog.ShowDialog(this) == DialogResult.OK)
@@ -140,6 +143,7 @@ namespace Clock
             if (backgroundColorDialog.ShowDialog(this) == DialogResult.OK)
             {
                 labelTime.BackColor = backgroundColorDialog.Color;
+                Properties.Settings.Default.MyBackColor = backgroundColorDialog.Color;
             }
         }
 

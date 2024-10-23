@@ -5,5 +5,8 @@
     <Setting Name="MyForeColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Olive</Value>
     </Setting>
+    <Setting Name="MyBackColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">LightYellow</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

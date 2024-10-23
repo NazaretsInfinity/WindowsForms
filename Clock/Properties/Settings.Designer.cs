@@ -34,5 +34,17 @@ namespace Clock.Properties {
                 this["MyForeColor"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("LightYellow")]
+        public global::System.Drawing.Color MyBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["MyBackColor"]));
+            }
+            set {
+                this["MyBackColor"] = value;
+            }
+        }
     }
 }
