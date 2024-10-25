@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using Microsoft.Win32;
 using System.IO;
 using System.Reflection;
+using System.Diagnostics;
+
 
 namespace Clock
 {
@@ -22,23 +24,50 @@ namespace Clock
         public MainForm()
         {
             InitializeComponent();
-            SetWorkDirectory();
+            SetFontDirectory();
             this.TransparencyKey = Color.Empty;
-            this.Left = Screen.PrimaryScreen.Bounds.Width - this.Width;
-            this.Top = 0;
+            backgroundColorDialog = new ColorDialog();
+            foregroundColorDialog = new ColorDialog();
+            LoadSettings();
+           
+
+           //labelTime.BackColor  = Properties.Settings.Default.MyBackColor;  
+           //labelTime.ForeColor = Properties.Settings.Default.MyForeColor;
+           labelTime.BackColor = backgroundColorDialog.Color;
+           labelTime.ForeColor = foregroundColorDialog.Color;
 
 
-            labelTime.ForeColor  = cbShowDate.ForeColor = HideControls.ForeColor = SaveB.ForeColor = Properties.Settings.Default.MyForeColor;
-            labelTime.BackColor = this.BackColor = cbShowDate.BackColor = HideControls.BackColor = SaveB.BackColor = Properties.Settings.Default.MyBackColor;  
+           this.Left = Screen.PrimaryScreen.Bounds.Width - this.Width;
+           this.Top = 0;
             SetVisibility(false);
+           
 
-           backgroundColorDialog = new ColorDialog();
-           foregroundColorDialog = new ColorDialog();
            chooseFontDialog = new FontChooser();
            // MessageBox.Show($"{Assembly.GetEntryAssembly().Location}", "Message", MessageBoxButtons.OK);
         }
 
-        void SetWorkDirectory()
+        void SaveSettings()
+        {
+            StreamWriter sw = new StreamWriter("Settings.txt");
+            sw.WriteLine(backgroundColorDialog.Color.ToArgb());
+            sw.WriteLine(foregroundColorDialog.Color.ToArgb());
+            sw.WriteLine(labelTime.Font.Name);
+            sw.Close();
+        }
+
+        void LoadSettings()
+        {
+            StreamReader sr = new StreamReader("Settings.txt");
+            List<string> settings = new List<string>();
+            while (!sr.EndOfStream)
+            {
+                settings.Add(sr.ReadLine());
+            }
+            backgroundColorDialog.Color = Color.FromArgb(Convert.ToInt32(settings.ToArray()[0]));
+            foregroundColorDialog.Color = Color.FromArgb(Convert.ToInt32(settings.ToArray()[1]));
+            sr.Close();
+        }
+        void SetFontDirectory()
         {
             string location = Assembly.GetEntryAssembly().Location; // full address to exe file
             string path = Path.GetDirectoryName(location); //from address we extract the way to file
@@ -161,11 +190,13 @@ namespace Clock
             RegistryKey register = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", true);
             if (!(register.GetValueNames().Contains("THIS ONE")))
             {
+                loadOnWindowsStartupToolStripMenuItem.Checked = true;
                 register.SetValue("THIS ONE", Application.ExecutablePath);
                 MessageBox.Show("Enabled", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);             
             }
             else 
             {
+                loadOnWindowsStartupToolStripMenuItem.Checked = false;
                 register.DeleteValue("THIS ONE");
                 MessageBox.Show("Disabled", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -173,8 +204,21 @@ namespace Clock
 
         private void SaveB_Click(object sender, EventArgs e)
         {
-         MessageBox.Show("Changes Saved", "Saving", MessageBoxButtons.OK, MessageBoxIcon.Information);
+         //MessageBox.Show("Changes Saved", "Saving", MessageBoxButtons.OK, MessageBoxIcon.Information);
          Properties.Settings.Default.Save();
+        }
+
+        private void labelTime_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+          
+                
+            }
+        }
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SaveSettings();
         }
     }
 }
