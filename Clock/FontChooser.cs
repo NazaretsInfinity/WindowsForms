@@ -16,6 +16,7 @@ namespace Clock
     public partial class FontChooser : Form
     {
         public Font ChosenFont {  get; private set; }
+        public string FontFile { get; private set; }
         public FontChooser()
         {
             InitializeComponent();
@@ -37,9 +38,9 @@ namespace Clock
 
         private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
         {
-            string fontfile = $"{Directory.GetCurrentDirectory()}\\{comboBox1.SelectedItem.ToString()}";
+            FontFile = $"{Directory.GetCurrentDirectory()}\\{comboBox1.SelectedItem.ToString()}";
             PrivateFontCollection pfc = new PrivateFontCollection();
-            pfc.AddFontFile(fontfile);
+            pfc.AddFontFile(FontFile);
             Font font = new Font(pfc.Families[0], 20);
             //comboBox1.Font = font;
             labelExample.Font = font;

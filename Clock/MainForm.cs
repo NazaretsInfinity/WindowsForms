@@ -51,7 +51,7 @@ namespace Clock
             StreamWriter sw = new StreamWriter("Settings.txt");
             sw.WriteLine(backgroundColorDialog.Color.ToArgb());
             sw.WriteLine(foregroundColorDialog.Color.ToArgb());
-            sw.WriteLine(labelTime.Font.Name);
+            sw.WriteLine(chooseFontDialog.Font);
             sw.Close();
         }
 
@@ -209,18 +209,25 @@ namespace Clock
          //MessageBox.Show("Changes Saved", "Saving", MessageBoxButtons.OK, MessageBoxIcon.Information);
          Properties.Settings.Default.Save();
         }
-
-        private void labelTime_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-          
-                
-            }
-        }
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             SaveSettings();
+        }
+
+        //MOVING LABEL
+        private void labelTime_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left && !HideControls.Visible)
+            {
+                labelTime.Left = labelTime.Left + e.X - CursorLoc.X;// e.X and e.Y are relatively labelTime scope(start from its up left corner)
+                labelTime.Top = labelTime.Top + e.Y - CursorLoc.Y;
+            }
+        }
+
+        Point CursorLoc { get; set;}
+        private void labelTime_MouseDown(object sender, MouseEventArgs e) // 'cause the button is being held down 
+        {
+           CursorLoc = e.Location;
         }
     }
 }
