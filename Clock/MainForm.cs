@@ -21,6 +21,7 @@ namespace Clock
         ColorDialog backgroundColorDialog;
         ColorDialog foregroundColorDialog;
         FontChooser chooseFontDialog;
+        AlarmList alarmList;
         string FontName { get; set; }
         public MainForm()
         {
@@ -29,7 +30,8 @@ namespace Clock
             this.TransparencyKey = Color.Empty;
             backgroundColorDialog = new ColorDialog();
             foregroundColorDialog = new ColorDialog();
-            LoadSettings();
+            alarmList = new AlarmList();
+          //  LoadSettings();
            
 
            //labelTime.BackColor  = Properties.Settings.Default.MyBackColor;  
@@ -239,6 +241,13 @@ namespace Clock
         private void labelTime_MouseDown(object sender, MouseEventArgs e) // 'cause the button is being held down
         {                                                                 // 'click' needs to be released to perform the event.
            CursorLoc = e.Location;
+        }
+
+ 
+
+        private void alarmsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            alarmList.ShowDialog(this);
         }
     }
 }
