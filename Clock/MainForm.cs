@@ -21,6 +21,7 @@ namespace Clock
         ColorDialog backgroundColorDialog;
         ColorDialog foregroundColorDialog;
         FontChooser chooseFontDialog;
+        string FontName { get; set; }
         public MainForm()
         {
             InitializeComponent();
@@ -33,8 +34,7 @@ namespace Clock
 
            //labelTime.BackColor  = Properties.Settings.Default.MyBackColor;  
            //labelTime.ForeColor = Properties.Settings.Default.MyForeColor;
-           labelTime.BackColor = backgroundColorDialog.Color;
-           labelTime.ForeColor = foregroundColorDialog.Color;
+          
 
 
            this.Left = Screen.PrimaryScreen.Bounds.Width - this.Width;
@@ -63,9 +63,11 @@ namespace Clock
             {
                 settings.Add(sr.ReadLine());
             }
+            sr.Close();
             backgroundColorDialog.Color = Color.FromArgb(Convert.ToInt32(settings.ToArray()[0]));
             foregroundColorDialog.Color = Color.FromArgb(Convert.ToInt32(settings.ToArray()[1]));
-            sr.Close();
+            labelTime.BackColor = backgroundColorDialog.Color;
+            labelTime.ForeColor = foregroundColorDialog.Color;
         }
         void SetFontDirectory()
         {
@@ -94,7 +96,7 @@ namespace Clock
             cbShowDate.Visible = visible;
             HideControls.Visible = visible;
             SaveB.Visible = visible;
-            labelTime.Left = visible ? 26 : this.Width - labelTime.Width - 20;
+            labelTime.Left = visible ? 26 : this.Width - labelTime.Width - 40;
             labelTime.Top = visible ? 21 : 0;
            
         }
