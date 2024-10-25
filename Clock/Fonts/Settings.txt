@@ -1,3 +1,2 @@
 -12582848
 -128
-[Font: Name=Microsoft Sans Serif, Size=8.25, Units=3, GdiCharSet=204, GdiVerticalFont=False]

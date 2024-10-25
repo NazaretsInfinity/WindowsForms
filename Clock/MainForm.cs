@@ -51,7 +51,7 @@ namespace Clock
             StreamWriter sw = new StreamWriter("Settings.txt");
             sw.WriteLine(backgroundColorDialog.Color.ToArgb());
             sw.WriteLine(foregroundColorDialog.Color.ToArgb());
-            sw.WriteLine(chooseFontDialog.Font);
+           // sw.WriteLine(chooseFontDialog.FontFile.Split('\\').Last());
             sw.Close();
         }
 
@@ -68,6 +68,11 @@ namespace Clock
             foregroundColorDialog.Color = Color.FromArgb(Convert.ToInt32(settings.ToArray()[1]));
             labelTime.BackColor = backgroundColorDialog.Color;
             labelTime.ForeColor = foregroundColorDialog.Color;
+
+            RegistryKey register = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            if ((register.GetValueNames().Contains("THIS ONE"))) 
+           loadOnWindowsStartupToolStripMenuItem.Checked = true;
+            register.Dispose();
         }
         void SetFontDirectory()
         {
@@ -191,17 +196,17 @@ namespace Clock
         {
             RegistryKey register = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", true);
             if (!(register.GetValueNames().Contains("THIS ONE")))
-            {
-                loadOnWindowsStartupToolStripMenuItem.Checked = true;
+            { 
                 register.SetValue("THIS ONE", Application.ExecutablePath);
                 MessageBox.Show("Enabled", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);             
             }
             else 
             {
                 loadOnWindowsStartupToolStripMenuItem.Checked = false;
-                register.DeleteValue("THIS ONE");
+                register.DeleteValue("THIS ONE"); 
                 MessageBox.Show("Disabled", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            register.Dispose(); // free resources took by object
         }
 
         private void SaveB_Click(object sender, EventArgs e)
@@ -219,8 +224,14 @@ namespace Clock
         {
             if (e.Button == MouseButtons.Left && !HideControls.Visible)
             {
-                labelTime.Left = labelTime.Left + e.X - CursorLoc.X;// e.X and e.Y are relatively labelTime scope(start from its up left corner)
-                labelTime.Top = labelTime.Top + e.Y - CursorLoc.Y;
+                int x = labelTime.Left + e.X - CursorLoc.X;// e.X and e.Y are relatively labelTime scope(start from its up left corner)
+                int y = labelTime.Top + e.Y - CursorLoc.Y; 
+
+                if( x > 0)
+                labelTime.Left =x;
+
+                if( y > 0)
+                labelTime.Top = y;
             }
         }
 

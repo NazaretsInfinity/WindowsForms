@@ -60,7 +60,7 @@
             this.labelTime.ContextMenuStrip = this.ContextMenu;
             this.labelTime.Font = new System.Drawing.Font("Niagara Engraved", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTime.ForeColor = System.Drawing.Color.OliveDrab;
-            this.labelTime.Location = new System.Drawing.Point(26, 21);
+            this.labelTime.Location = new System.Drawing.Point(27, 27);
             this.labelTime.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.labelTime.Name = "labelTime";
             this.labelTime.Size = new System.Drawing.Size(149, 64);
@@ -234,7 +234,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 34F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Olive;
-            this.ClientSize = new System.Drawing.Size(322, 268);
+            this.ClientSize = new System.Drawing.Size(467, 268);
             this.Controls.Add(this.SaveB);
             this.Controls.Add(this.HideControls);
             this.Controls.Add(this.cbShowDate);
