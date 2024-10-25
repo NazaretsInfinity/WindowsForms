@@ -225,8 +225,8 @@ namespace Clock
         }
 
         Point CursorLoc { get; set;}
-        private void labelTime_MouseDown(object sender, MouseEventArgs e) // 'cause the button is being held down 
-        {
+        private void labelTime_MouseDown(object sender, MouseEventArgs e) // 'cause the button is being held down
+        {                                                                 // 'click' needs to be released to perform the event.
            CursorLoc = e.Location;
         }
     }
