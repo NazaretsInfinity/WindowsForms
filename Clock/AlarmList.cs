@@ -27,8 +27,13 @@ namespace Clock
 
             if(addAlarms.ShowDialog() == DialogResult.OK )
             {
-               AlarmsList.Items.Add(addAlarms.alarm.ToString());
-               Properties.Settings.Default.My_alarms.Add(addAlarms.alarm.ToString());
+                string newal = addAlarms.alarm.ToString();
+                for(int i = 0;i <7;i++)
+                {
+
+                }
+               //AlarmsList.Items.Add(addAlarms.alarm.ToString());
+               //Properties.Settings.Default.My_alarms.Add(addAlarms.alarm.ToString());
                Properties.Settings.Default.Save();
             }
 
@@ -36,8 +41,8 @@ namespace Clock
         private void CancelB_Click(object sender, EventArgs e)
         {
             this.Close(); 
-           // Properties.Settings.Default.My_alarms.Clear();
-           // AlarmsList.Items.Clear();                
+          // Properties.Settings.Default.My_alarms.Clear();
+          // AlarmsList.Items.Clear();                
            Properties.Settings.Default.Save();
         }
     }
