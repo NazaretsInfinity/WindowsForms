@@ -20,12 +20,13 @@ namespace Clock
         private void AddB_MouseClick(object sender, MouseEventArgs e)
         {
             AddAlarms addAlarms = new AddAlarms();
-            addAlarms.ShowDialog();
+ 
 
             if(addAlarms.ShowDialog() == DialogResult.OK )
             {
-                //AlarmsList.Items.Add(addAlarms.alarm.ToString());
-                AlarmsList.Items.Clear();
+
+                AlarmsList.Items.Add(addAlarms.alarm.ToString());
+               // AlarmsList.Items.Clear();
             }
         }
     }
