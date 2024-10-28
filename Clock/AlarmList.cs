@@ -27,13 +27,12 @@ namespace Clock
 
             if(addAlarms.ShowDialog() == DialogResult.OK )
             {
-
                AlarmsList.Items.Add(addAlarms.alarm.ToString());
                Properties.Settings.Default.My_alarms.Add(addAlarms.alarm.ToString());
                Properties.Settings.Default.Save();
             }
-        }
 
+        }
         private void CancelB_Click(object sender, EventArgs e)
         {
             this.Close(); 

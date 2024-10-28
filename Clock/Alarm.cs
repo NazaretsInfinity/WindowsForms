@@ -24,8 +24,7 @@ namespace Clock
             string result = " ";
             if (Date != DateTime.MinValue) result += $"{Date.ToShortDateString()}, ";
             else result += $"{Weekdays}, ";
-            result += $"{Time.TimeOfDay}, {Filename}"; 
-           
+            result += $"{Time.ToShortTimeString()}, {Filename}";            
             return result; 
 
         }
