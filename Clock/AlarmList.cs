@@ -24,8 +24,8 @@ namespace Clock
 
             if(addAlarms.ShowDialog() == DialogResult.OK )
             {
-               AlarmsList.Items.Add(addAlarms.alarm.ToString());
-               AlarmsList.Items.Clear();
+                //AlarmsList.Items.Add(addAlarms.alarm.ToString());
+                AlarmsList.Items.Clear();
             }
         }
     }

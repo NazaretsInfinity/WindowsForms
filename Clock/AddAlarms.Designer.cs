@@ -124,7 +124,8 @@
             this.dateTimePickerTime.Name = "dateTimePickerTime";
             this.dateTimePickerTime.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dateTimePickerTime.RightToLeftLayout = true;
-            this.dateTimePickerTime.Size = new System.Drawing.Size(252, 35);
+            this.dateTimePickerTime.ShowUpDown = true;
+            this.dateTimePickerTime.Size = new System.Drawing.Size(262, 35);
             this.dateTimePickerTime.TabIndex = 5;
             // 
             // checkBoxExactDate
