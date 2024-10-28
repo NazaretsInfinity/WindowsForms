@@ -31,11 +31,6 @@ namespace Clock
         {
            if (dateTimePickerDate.Enabled) alarm.Date = dateTimePickerDate.Value;
            alarm.Time = dateTimePickerTime.Value;
-           
-           for(int i = 0; i < 7;++i)
-           {
-                alarm.Weekdays[i] = checkedListBoxWeek.GetItemChecked(i);
-           }
            this.Close();        
         }
     }

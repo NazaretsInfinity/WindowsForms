@@ -36,7 +36,9 @@ namespace Clock
         private void CancelB_Click(object sender, EventArgs e)
         {
             this.Close(); 
-            Properties.Settings.Default.Save();        
+           // Properties.Settings.Default.My_alarms.Clear();
+           // AlarmsList.Items.Clear();                
+           Properties.Settings.Default.Save();
         }
     }
 }
