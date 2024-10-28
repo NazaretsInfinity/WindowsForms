@@ -12,11 +12,20 @@ namespace Clock
 {
     public partial class AddAlarms : Form
     {
+        Alarm alarm;
         public AddAlarms()
         {
             InitializeComponent();
+            alarm = new Alarm();    
         }
 
-  
+       
+
+        private void checkBoxExactDate_CheckedChanged(object sender, EventArgs e)
+        {
+            dateTimePickerDate.Enabled = ((CheckBox)sender).Checked;
+        }
+
+     
     }
 }

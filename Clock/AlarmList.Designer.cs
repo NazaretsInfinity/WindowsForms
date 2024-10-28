@@ -76,7 +76,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.ClientSize = new System.Drawing.Size(493, 242);
+            this.ClientSize = new System.Drawing.Size(493, 213);
             this.Controls.Add(this.CancelB);
             this.Controls.Add(this.AddB);
             this.Controls.Add(this.Alarms);
