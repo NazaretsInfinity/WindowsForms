@@ -37,6 +37,7 @@
             this.dateTimePickerTime = new System.Windows.Forms.DateTimePicker();
             this.checkBoxExactDate = new System.Windows.Forms.CheckBox();
             this.FileNameSound = new System.Windows.Forms.Label();
+            this.OpenFileDialogSound = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // dateTimePickerDate
@@ -82,14 +83,16 @@
             this.ChooseFileB.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.ChooseFileB.Location = new System.Drawing.Point(12, 244);
             this.ChooseFileB.Name = "ChooseFileB";
-            this.ChooseFileB.Size = new System.Drawing.Size(110, 41);
+            this.ChooseFileB.Size = new System.Drawing.Size(148, 41);
             this.ChooseFileB.TabIndex = 2;
             this.ChooseFileB.Text = "Choose File";
             this.ChooseFileB.UseVisualStyleBackColor = true;
+            this.ChooseFileB.Click += new System.EventHandler(this.ChooseFileB_Click);
             // 
             // ChooseOkB
             // 
             this.ChooseOkB.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.ChooseOkB.Enabled = false;
             this.ChooseOkB.Font = new System.Drawing.Font("Niagara Engraved", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChooseOkB.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.ChooseOkB.Location = new System.Drawing.Point(359, 244);
@@ -146,13 +149,18 @@
             // 
             this.FileNameSound.AutoSize = true;
             this.FileNameSound.BackColor = System.Drawing.Color.OliveDrab;
-            this.FileNameSound.Font = new System.Drawing.Font("Niagara Engraved", 16.2F, System.Drawing.FontStyle.Bold);
+            this.FileNameSound.Font = new System.Drawing.Font("Niagara Engraved", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FileNameSound.ForeColor = System.Drawing.Color.Yellow;
-            this.FileNameSound.Location = new System.Drawing.Point(12, 211);
+            this.FileNameSound.Location = new System.Drawing.Point(12, 199);
             this.FileNameSound.Name = "FileNameSound";
             this.FileNameSound.Size = new System.Drawing.Size(91, 30);
             this.FileNameSound.TabIndex = 7;
             this.FileNameSound.Text = "File name:";
+            this.FileNameSound.TextChanged += new System.EventHandler(this.FileNameSound_TextChanged);
+            // 
+            // OpenFileDialogSound
+            // 
+            this.OpenFileDialogSound.FileName = "OpenFileDialogSound";
             // 
             // AddAlarms
             // 
@@ -186,5 +194,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerTime;
         private System.Windows.Forms.CheckBox checkBoxExactDate;
         private System.Windows.Forms.Label FileNameSound;
+        private System.Windows.Forms.OpenFileDialog OpenFileDialogSound;
     }
 }

@@ -12,6 +12,7 @@ using Microsoft.Win32;
 using System.IO;
 using System.Reflection;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 
 namespace Clock
@@ -26,21 +27,22 @@ namespace Clock
         public MainForm()
         {
             InitializeComponent();
+            AllocConsole();
             SetFontDirectory();
             this.TransparencyKey = Color.Empty;
             backgroundColorDialog = new ColorDialog();
             foregroundColorDialog = new ColorDialog();
             alarmList = new AlarmList();
             //Properties.Settings.Default.My_alarms = new System.Collections.Specialized.StringCollection();
-          //  LoadSettings();
-           
-
-           //labelTime.BackColor  = Properties.Settings.Default.MyBackColor;  
-           //labelTime.ForeColor = Properties.Settings.Default.MyForeColor;
-          
+            //  LoadSettings();
 
 
-           this.Left = Screen.PrimaryScreen.Bounds.Width - this.Width;
+            //labelTime.BackColor  = Properties.Settings.Default.MyBackColor;  
+            //labelTime.ForeColor = Properties.Settings.Default.MyForeColor;
+
+
+
+           this.Left = 300;// Screen.PrimaryScreen.Bounds.Width - this.Width;
            this.Top = 0;
             SetVisibility(false);
            
@@ -250,5 +252,8 @@ namespace Clock
         {
             alarmList.ShowDialog(this);
         }
+
+        [DllImport("kernel32.dll")]
+        static extern bool AllocConsole();
     }
 }

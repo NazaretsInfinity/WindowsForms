@@ -14,10 +14,14 @@ namespace Clock
         public DateTime Date { get; set; } 
         public DateTime Time { get; set; }
 
-        public bool[] Weekdays { get; private set; } = new bool[7];
+        public bool[] Weekdays { get; private set; }  = new bool[7];
         public string Filename { get; set; }
 
        
+        public Alarm()
+        {
+            Weekdays = new bool[7];
+        }
 
         public override string ToString()
         {

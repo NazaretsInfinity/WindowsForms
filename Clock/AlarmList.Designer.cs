@@ -29,29 +29,30 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlarmList));
-            this.AlarmsList = new System.Windows.Forms.ListBox();
+            this.ListBoxAlarms = new System.Windows.Forms.ListBox();
             this.AddB = new System.Windows.Forms.Button();
             this.CancelB = new System.Windows.Forms.Button();
+            this.DeleteB = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // AlarmsList
+            // ListBoxAlarms
             // 
-            this.AlarmsList.BackColor = System.Drawing.Color.OliveDrab;
-            this.AlarmsList.Font = new System.Drawing.Font("Niagara Engraved", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AlarmsList.ForeColor = System.Drawing.Color.Gold;
-            this.AlarmsList.FormattingEnabled = true;
-            this.AlarmsList.ItemHeight = 29;
-            this.AlarmsList.Location = new System.Drawing.Point(12, 22);
-            this.AlarmsList.Name = "AlarmsList";
-            this.AlarmsList.Size = new System.Drawing.Size(494, 178);
-            this.AlarmsList.TabIndex = 0;
+            this.ListBoxAlarms.BackColor = System.Drawing.Color.OliveDrab;
+            this.ListBoxAlarms.Font = new System.Drawing.Font("Niagara Engraved", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ListBoxAlarms.ForeColor = System.Drawing.Color.Gold;
+            this.ListBoxAlarms.FormattingEnabled = true;
+            this.ListBoxAlarms.ItemHeight = 29;
+            this.ListBoxAlarms.Location = new System.Drawing.Point(12, 22);
+            this.ListBoxAlarms.Name = "ListBoxAlarms";
+            this.ListBoxAlarms.Size = new System.Drawing.Size(494, 178);
+            this.ListBoxAlarms.TabIndex = 0;
             // 
             // AddB
             // 
             this.AddB.BackColor = System.Drawing.Color.DarkOliveGreen;
             this.AddB.Font = new System.Drawing.Font("Niagara Engraved", 16.2F, System.Drawing.FontStyle.Bold);
             this.AddB.ForeColor = System.Drawing.Color.OldLace;
-            this.AddB.Location = new System.Drawing.Point(512, 67);
+            this.AddB.Location = new System.Drawing.Point(512, 22);
             this.AddB.Name = "AddB";
             this.AddB.Size = new System.Drawing.Size(136, 51);
             this.AddB.TabIndex = 1;
@@ -64,13 +65,25 @@
             this.CancelB.BackColor = System.Drawing.Color.Tan;
             this.CancelB.Font = new System.Drawing.Font("Niagara Engraved", 16.2F, System.Drawing.FontStyle.Bold);
             this.CancelB.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.CancelB.Location = new System.Drawing.Point(512, 124);
+            this.CancelB.Location = new System.Drawing.Point(512, 137);
             this.CancelB.Name = "CancelB";
-            this.CancelB.Size = new System.Drawing.Size(136, 51);
+            this.CancelB.Size = new System.Drawing.Size(136, 63);
             this.CancelB.TabIndex = 2;
             this.CancelB.Text = "Cancel";
             this.CancelB.UseVisualStyleBackColor = false;
             this.CancelB.Click += new System.EventHandler(this.CancelB_Click);
+            // 
+            // DeleteB
+            // 
+            this.DeleteB.BackColor = System.Drawing.Color.DarkOliveGreen;
+            this.DeleteB.Font = new System.Drawing.Font("Niagara Engraved", 16.2F, System.Drawing.FontStyle.Bold);
+            this.DeleteB.ForeColor = System.Drawing.Color.OldLace;
+            this.DeleteB.Location = new System.Drawing.Point(512, 79);
+            this.DeleteB.Name = "DeleteB";
+            this.DeleteB.Size = new System.Drawing.Size(136, 51);
+            this.DeleteB.TabIndex = 3;
+            this.DeleteB.Text = "Delete";
+            this.DeleteB.UseVisualStyleBackColor = false;
             // 
             // AlarmList
             // 
@@ -78,9 +91,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.ClientSize = new System.Drawing.Size(671, 220);
+            this.Controls.Add(this.DeleteB);
             this.Controls.Add(this.CancelB);
             this.Controls.Add(this.AddB);
-            this.Controls.Add(this.AlarmsList);
+            this.Controls.Add(this.ListBoxAlarms);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AlarmList";
             this.Text = "AlarmList";
@@ -90,8 +104,9 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox AlarmsList;
+        private System.Windows.Forms.ListBox ListBoxAlarms;
         private System.Windows.Forms.Button AddB;
         private System.Windows.Forms.Button CancelB;
+        private System.Windows.Forms.Button DeleteB;
     }
 }
