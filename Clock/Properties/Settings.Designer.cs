@@ -46,5 +46,16 @@ namespace Clock.Properties {
                 this["MyBackColor"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection My_alarms {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["My_alarms"]));
+            }
+            set {
+                this["My_alarms"] = value;
+            }
+        }
     }
 }

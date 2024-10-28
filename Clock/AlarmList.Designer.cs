@@ -70,6 +70,7 @@
             this.CancelB.TabIndex = 2;
             this.CancelB.Text = "Cancel";
             this.CancelB.UseVisualStyleBackColor = false;
+            this.CancelB.Click += new System.EventHandler(this.CancelB_Click);
             // 
             // AlarmList
             // 

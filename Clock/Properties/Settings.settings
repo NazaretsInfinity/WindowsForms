@@ -8,5 +8,8 @@
     <Setting Name="MyBackColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">LightYellow</Value>
     </Setting>
+    <Setting Name="My_alarms" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

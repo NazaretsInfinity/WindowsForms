@@ -29,7 +29,7 @@ namespace Clock
 
         private void ChooseOkB_Click(object sender, EventArgs e)
         {
-            if (dateTimePickerDate.Enabled) alarm.Date = dateTimePickerDate.Value;
+           if (dateTimePickerDate.Enabled) alarm.Date = dateTimePickerDate.Value;
            alarm.Time = dateTimePickerTime.Value;
            
            for(int i = 0; i < 7;++i)
