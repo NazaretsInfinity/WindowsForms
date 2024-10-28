@@ -12,7 +12,8 @@ namespace Clock
 {
     public partial class AddAlarms : Form
     {
-        Alarm alarm;
+        internal Alarm alarm;
+        public string alarmname;
         public AddAlarms()
         {
             InitializeComponent();
@@ -26,6 +27,11 @@ namespace Clock
             dateTimePickerDate.Enabled = ((CheckBox)sender).Checked;
         }
 
-     
+        private void ChooseOkB_Click(object sender, EventArgs e)
+        {
+           alarm.Date = dateTimePickerDate.Value;
+           alarm.Time = dateTimePickerTime.Value;
+          
+        }
     }
 }

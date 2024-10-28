@@ -21,6 +21,12 @@ namespace Clock
         {
             AddAlarms addAlarms = new AddAlarms();
             addAlarms.ShowDialog();
+
+            if(addAlarms.ShowDialog() == DialogResult.OK )
+            {
+               AlarmsList.Items.Add(addAlarms.alarm.ToString());
+               AlarmsList.Items.Clear();
+            }
         }
     }
 }

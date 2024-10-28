@@ -46,19 +46,19 @@
             this.dateTimePickerDate.CalendarMonthBackground = System.Drawing.Color.YellowGreen;
             this.dateTimePickerDate.CalendarTitleForeColor = System.Drawing.Color.DarkOliveGreen;
             this.dateTimePickerDate.Enabled = false;
-            this.dateTimePickerDate.Font = new System.Drawing.Font("Niagara Engraved", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerDate.Font = new System.Drawing.Font("MingLiU-ExtB", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerDate.Location = new System.Drawing.Point(14, 61);
             this.dateTimePickerDate.Name = "dateTimePickerDate";
             this.dateTimePickerDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dateTimePickerDate.RightToLeftLayout = true;
-            this.dateTimePickerDate.Size = new System.Drawing.Size(248, 36);
+            this.dateTimePickerDate.Size = new System.Drawing.Size(278, 35);
             this.dateTimePickerDate.TabIndex = 0;
             // 
             // checkedListBoxWeek
             // 
             this.checkedListBoxWeek.BackColor = System.Drawing.Color.Goldenrod;
-            this.checkedListBoxWeek.ColumnWidth = 90;
+            this.checkedListBoxWeek.ColumnWidth = 130;
             this.checkedListBoxWeek.Font = new System.Drawing.Font("Niagara Engraved", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkedListBoxWeek.ForeColor = System.Drawing.Color.LightYellow;
             this.checkedListBoxWeek.FormattingEnabled = true;
@@ -73,7 +73,7 @@
             this.checkedListBoxWeek.Location = new System.Drawing.Point(14, 103);
             this.checkedListBoxWeek.MultiColumn = true;
             this.checkedListBoxWeek.Name = "checkedListBoxWeek";
-            this.checkedListBoxWeek.Size = new System.Drawing.Size(506, 80);
+            this.checkedListBoxWeek.Size = new System.Drawing.Size(545, 80);
             this.checkedListBoxWeek.TabIndex = 1;
             // 
             // ChooseFileB
@@ -92,21 +92,22 @@
             this.ChooseOkB.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.ChooseOkB.Font = new System.Drawing.Font("Niagara Engraved", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChooseOkB.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.ChooseOkB.Location = new System.Drawing.Point(366, 244);
+            this.ChooseOkB.Location = new System.Drawing.Point(359, 244);
             this.ChooseOkB.Name = "ChooseOkB";
-            this.ChooseOkB.Size = new System.Drawing.Size(75, 41);
+            this.ChooseOkB.Size = new System.Drawing.Size(92, 41);
             this.ChooseOkB.TabIndex = 3;
             this.ChooseOkB.Text = "OK ";
             this.ChooseOkB.UseVisualStyleBackColor = true;
+            this.ChooseOkB.Click += new System.EventHandler(this.ChooseOkB_Click);
             // 
             // ChooseCancelB
             // 
             this.ChooseCancelB.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.ChooseCancelB.Font = new System.Drawing.Font("Niagara Engraved", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChooseCancelB.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.ChooseCancelB.Location = new System.Drawing.Point(447, 244);
+            this.ChooseCancelB.Location = new System.Drawing.Point(457, 244);
             this.ChooseCancelB.Name = "ChooseCancelB";
-            this.ChooseCancelB.Size = new System.Drawing.Size(75, 41);
+            this.ChooseCancelB.Size = new System.Drawing.Size(102, 41);
             this.ChooseCancelB.TabIndex = 4;
             this.ChooseCancelB.Text = "Cancel";
             this.ChooseCancelB.UseVisualStyleBackColor = true;
@@ -117,13 +118,13 @@
             this.dateTimePickerTime.CalendarForeColor = System.Drawing.Color.NavajoWhite;
             this.dateTimePickerTime.CalendarMonthBackground = System.Drawing.Color.YellowGreen;
             this.dateTimePickerTime.CalendarTitleForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.dateTimePickerTime.Font = new System.Drawing.Font("Niagara Engraved", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerTime.Font = new System.Drawing.Font("MingLiU-ExtB", 13.8F);
             this.dateTimePickerTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePickerTime.Location = new System.Drawing.Point(268, 61);
+            this.dateTimePickerTime.Location = new System.Drawing.Point(298, 61);
             this.dateTimePickerTime.Name = "dateTimePickerTime";
             this.dateTimePickerTime.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dateTimePickerTime.RightToLeftLayout = true;
-            this.dateTimePickerTime.Size = new System.Drawing.Size(252, 36);
+            this.dateTimePickerTime.Size = new System.Drawing.Size(252, 35);
             this.dateTimePickerTime.TabIndex = 5;
             // 
             // checkBoxExactDate
@@ -157,7 +158,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOliveGreen;
-            this.ClientSize = new System.Drawing.Size(534, 297);
+            this.ClientSize = new System.Drawing.Size(572, 297);
             this.Controls.Add(this.FileNameSound);
             this.Controls.Add(this.checkBoxExactDate);
             this.Controls.Add(this.dateTimePickerTime);
