@@ -31,7 +31,7 @@ namespace Clock
             backgroundColorDialog = new ColorDialog();
             foregroundColorDialog = new ColorDialog();
             alarmList = new AlarmList();
-            Properties.Settings.Default.My_alarms = new System.Collections.Specialized.StringCollection();
+            //Properties.Settings.Default.My_alarms = new System.Collections.Specialized.StringCollection();
           //  LoadSettings();
            
 

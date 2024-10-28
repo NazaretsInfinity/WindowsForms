@@ -15,7 +15,7 @@ namespace Clock
         public AlarmList()
         {
             InitializeComponent();
-           for (int i = 0; i < Properties.Settings.Default.My_alarms.Count; ++i)
+           for (int i = 0; i < Properties.Settings.Default.My_alarms.Count; i++)
            AlarmsList.Items.Add(Properties.Settings.Default.My_alarms[i]);
             
         }
@@ -31,13 +31,13 @@ namespace Clock
                AlarmsList.Items.Add(addAlarms.alarm.ToString());
                Properties.Settings.Default.My_alarms.Add(addAlarms.alarm.ToString());
                Properties.Settings.Default.Save();
-               // AlarmsList.Items.Clear();
             }
         }
 
         private void CancelB_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Close(); 
+            Properties.Settings.Default.Save();        
         }
     }
 }
