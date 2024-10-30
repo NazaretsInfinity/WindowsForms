@@ -19,8 +19,33 @@ namespace Clock
             InitializeComponent();
             alarm = new Alarm();
             FileNameSound.MaximumSize = new Size(this.Width - 25, 30);
-
+            OpenFileDialogSound.Filter = "MP-3 (*.mp3)|*.mp3|Flac (*.flac)|*.flac|All Audio|*.mp3;*flac";
         }
+        public AddAlarms(string stralarm)
+        {
+            InitializeComponent();
+            string[] comps = stralarm.Split(',');
+            if (comps[0].Contains('/'))
+            {
+                checkBoxExactDate.Checked = true;
+                dateTimePickerDate.Text = comps[0];
+                dateTimePickerTime.Text = comps[1];
+
+            }
+            else
+            {
+                checkBoxExactDate.Checked = false;
+                dateTimePickerTime.Text = comps[0];
+                for (int i = 1; i < comps.Length; ++i)
+                {
+                    if (Alarm.WeekDayNames.Contains(comps[i]))
+                    {
+                        checkedListBoxWeek.SetItemChecked(i, true);
+                    }
+                }
+            }
+        }
+
 
         void initAlarm()
         {
@@ -29,6 +54,7 @@ namespace Clock
             alarm.Filename = FileNameSound.Text;
             for (int i = 0; i < checkedListBoxWeek.CheckedIndices.Count; ++i)
             {
+                alarm.Weekdays[checkedListBoxWeek.CheckedIndices[i]] = true;
                 Console.Write(checkedListBoxWeek.CheckedIndices[i] + "\t");
    // Property 'ChecckedIndices' is a collection, which contents  indexes of choosen Checks in checklistbox
             }

@@ -39,5 +39,12 @@ namespace Clock
           ListBoxAlarms.Items.Clear();                
            Properties.Settings.Default.Save();
         }
+
+
+        private void ListBoxAlarms_DoubleClick(object sender, EventArgs e)
+        {
+            AddAlarms Addalarm = new AddAlarms(ListBoxAlarms.SelectedItem.ToString());
+            Addalarm.ShowDialog(this);
+        }
     }
 }

@@ -10,7 +10,7 @@ namespace Clock
 {
     internal class Alarm
     {
-
+        public static readonly string[] WeekDayNames = new string[7]{"Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday", "Sunday"};
         public DateTime Date { get; set; } 
         public DateTime Time { get; set; }
 
@@ -23,14 +23,24 @@ namespace Clock
             Weekdays = new bool[7];
         }
 
+        string WeekDaysToString()
+        {
+            string days = ""; 
+            for(int i = 0; i <WeekDayNames.Length; ++i)
+            {
+                if (Weekdays[i])
+                days += WeekDayNames[i] + ", ";
+            }
+            return days;
+        }
+
         public override string ToString()
         {
             string result = " ";
             if (Date != DateTime.MinValue) result += $"{Date.ToShortDateString()}, ";
-            //else result += $"{Weekdays}, ";
-            result += $"{Time.ToShortTimeString()}, {Filename}";            
-            return result; 
-
+            result += $"{Time.ToString("hh:mm:ss")}, {WeekDaysToString()}{Filename.Split('\\').Last()}";            
+            return result;
+            //ToLongTimeString()
         }
     }
 }

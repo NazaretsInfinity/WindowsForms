@@ -42,13 +42,13 @@ namespace Clock
 
 
 
-           this.Left = 300;// Screen.PrimaryScreen.Bounds.Width - this.Width;
-           this.Top = 0;
+            this.Left = 300;// Screen.PrimaryScreen.Bounds.Width - this.Width;
+            this.Top = 0;
             SetVisibility(false);
-           
 
-           chooseFontDialog = new FontChooser();
-           // MessageBox.Show($"{Assembly.GetEntryAssembly().Location}", "Message", MessageBoxButtons.OK);
+
+            chooseFontDialog = new FontChooser();
+            // MessageBox.Show($"{Assembly.GetEntryAssembly().Location}", "Message", MessageBoxButtons.OK);
         }
 
         void SaveSettings()
@@ -56,7 +56,7 @@ namespace Clock
             StreamWriter sw = new StreamWriter("Settings.txt");
             sw.WriteLine(backgroundColorDialog.Color.ToArgb());
             sw.WriteLine(foregroundColorDialog.Color.ToArgb());
-           // sw.WriteLine(chooseFontDialog.FontFile.Split('\\').Last());
+            // sw.WriteLine(chooseFontDialog.FontFile.Split('\\').Last());
             sw.Close();
         }
 
@@ -75,15 +75,15 @@ namespace Clock
             labelTime.ForeColor = foregroundColorDialog.Color;
 
             RegistryKey register = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-            if ((register.GetValueNames().Contains("THIS ONE"))) 
-           loadOnWindowsStartupToolStripMenuItem.Checked = true;
+            if ((register.GetValueNames().Contains("THIS ONE")))
+                loadOnWindowsStartupToolStripMenuItem.Checked = true;
             register.Dispose();
         }
         void SetFontDirectory()
         {
             string location = Assembly.GetEntryAssembly().Location; // full address to exe file
             string path = Path.GetDirectoryName(location); //from address we extract the way to file
-           //MessageBox.Show(Directory.GetCurrentDirectory());
+                                                           //MessageBox.Show(Directory.GetCurrentDirectory());
             Directory.SetCurrentDirectory($"{path}\\..\\..\\Fonts");
 
             //MessageBox.Show(Directory.GetCurrentDirectory());
@@ -92,7 +92,7 @@ namespace Clock
         private void timer1_Tick(object sender, EventArgs e)
         {
             labelTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
-            if(cbShowDate.Checked)
+            if (cbShowDate.Checked)
             {
                 labelTime.Text += $"\n{DateTime.Today.ToString("dd.MM.yyyy")}";
             }
@@ -108,7 +108,7 @@ namespace Clock
             SaveB.Visible = visible;
             labelTime.Left = visible ? 26 : this.Width - labelTime.Width - 40;
             labelTime.Top = visible ? 21 : 0;
-           
+
         }
 
         private void HideControls_Click(object sender, EventArgs e)
@@ -137,8 +137,8 @@ namespace Clock
                 else ContextMenu.Close();
             }
         }
-        
-        
+
+
         //Context menu options events
         private void ShowDateToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -162,7 +162,7 @@ namespace Clock
 
         private void notifyIconSystemTray_DoubleClick(object sender, EventArgs e)
         {
-            if(!this.TopMost)
+            if (!this.TopMost)
             {
                 this.TopMost = true;
                 this.TopMost = false;
@@ -173,7 +173,7 @@ namespace Clock
         // LABEL APPEARANCE EVENTS
         private void foregroundColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(foregroundColorDialog.ShowDialog(this) == DialogResult.OK)
+            if (foregroundColorDialog.ShowDialog(this) == DialogResult.OK)
             {
                 labelTime.ForeColor = foregroundColorDialog.Color;
                 Properties.Settings.Default.MyForeColor = foregroundColorDialog.Color;
@@ -191,7 +191,7 @@ namespace Clock
 
         private void fontsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(chooseFontDialog.ShowDialog(this) == DialogResult.OK)
+            if (chooseFontDialog.ShowDialog(this) == DialogResult.OK)
             {
                 labelTime.Font = chooseFontDialog.ChosenFont;
             }
@@ -201,14 +201,14 @@ namespace Clock
         {
             RegistryKey register = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", true);
             if (!(register.GetValueNames().Contains("THIS ONE")))
-            { 
+            {
                 register.SetValue("THIS ONE", Application.ExecutablePath);
-                MessageBox.Show("Enabled", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);             
+                MessageBox.Show("Enabled", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else 
+            else
             {
                 loadOnWindowsStartupToolStripMenuItem.Checked = false;
-                register.DeleteValue("THIS ONE"); 
+                register.DeleteValue("THIS ONE");
                 MessageBox.Show("Disabled", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             register.Dispose(); // free resources took by object
@@ -216,8 +216,8 @@ namespace Clock
 
         private void SaveB_Click(object sender, EventArgs e)
         {
-         //MessageBox.Show("Changes Saved", "Saving", MessageBoxButtons.OK, MessageBoxIcon.Information);
-         Properties.Settings.Default.Save();
+            //MessageBox.Show("Changes Saved", "Saving", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Properties.Settings.Default.Save();
         }
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -230,21 +230,25 @@ namespace Clock
             if (e.Button == MouseButtons.Left && !HideControls.Visible)
             {
                 int x = labelTime.Left + e.X - CursorLoc.X;// e.X and e.Y are relatively labelTime scope(start from its up left corner)
-                int y = labelTime.Top + e.Y - CursorLoc.Y; 
+                int y = labelTime.Top + e.Y - CursorLoc.Y;
 
-                if( x > 0)
-                labelTime.Left =x;
+                if (x > 0)
+                    labelTime.Left = x;
 
-                if( y > 0)
-                labelTime.Top = y;
+                if (y > 0)
+                    labelTime.Top = y;
+
+
             }
         }
 
-        Point CursorLoc { get; set;}
+        Point CursorLoc { get; set; }
         private void labelTime_MouseDown(object sender, MouseEventArgs e) // 'cause the button is being held down
         {                                                                 // 'click' needs to be released to perform the event.
            CursorLoc = e.Location;
+
         }
+       
 
  
 
@@ -255,5 +259,6 @@ namespace Clock
 
         [DllImport("kernel32.dll")]
         static extern bool AllocConsole();
+
     }
 }

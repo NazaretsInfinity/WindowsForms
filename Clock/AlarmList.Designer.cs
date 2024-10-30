@@ -46,6 +46,7 @@
             this.ListBoxAlarms.Name = "ListBoxAlarms";
             this.ListBoxAlarms.Size = new System.Drawing.Size(494, 178);
             this.ListBoxAlarms.TabIndex = 0;
+            this.ListBoxAlarms.DoubleClick += new System.EventHandler(this.ListBoxAlarms_DoubleClick);
             // 
             // AddB
             // 
@@ -98,6 +99,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AlarmList";
             this.Text = "AlarmList";
+           
             this.ResumeLayout(false);
 
         }

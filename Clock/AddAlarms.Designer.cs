@@ -92,7 +92,6 @@
             // ChooseOkB
             // 
             this.ChooseOkB.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.ChooseOkB.Enabled = false;
             this.ChooseOkB.Font = new System.Drawing.Font("Niagara Engraved", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChooseOkB.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.ChooseOkB.Location = new System.Drawing.Point(359, 244);

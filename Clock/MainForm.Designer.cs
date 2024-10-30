@@ -70,7 +70,9 @@
             this.labelTime.Text = "Time ✿";
             this.labelTime.DoubleClick += new System.EventHandler(this.labelTime_DoubleClick);
             this.labelTime.MouseDown += new System.Windows.Forms.MouseEventHandler(this.labelTime_MouseDown);
+           
             this.labelTime.MouseMove += new System.Windows.Forms.MouseEventHandler(this.labelTime_MouseMove);
+           
             // 
             // ContextMenu
             // 
@@ -90,7 +92,7 @@
             this.toolStripSeparator4,
             this.closeToolStripMenuItem});
             this.ContextMenu.Name = "ContextMenu";
-            this.ContextMenu.Size = new System.Drawing.Size(250, 254);
+            this.ContextMenu.Size = new System.Drawing.Size(250, 226);
             // 
             // topMostToolStripMenuItem
             // 
