@@ -15,8 +15,8 @@ namespace Clock
         public AlarmList()
         {
             InitializeComponent();
-           for (int i = 0; i < Properties.Settings.Default.My_alarms.Count; i++)
-           ListBoxAlarms.Items.Add(Properties.Settings.Default.My_alarms[i]);
+           // for (int i = 0; i < Properties.Settings.Default.My_alarms.Count; i++)
+           // ListBoxAlarms.Items.Add(Properties.Settings.Default.My_alarms[i]);
             
         }
 
@@ -25,8 +25,8 @@ namespace Clock
             AddAlarms addAlarms = new AddAlarms();
             if (addAlarms.ShowDialog() == DialogResult.OK)
             {
-                ListBoxAlarms.Items.Add(addAlarms.alarm);
-                Properties.Settings.Default.My_alarms.Add(addAlarms.alarm.ToString());
+                ListBoxAlarms.Items.Add(addAlarms.Alarm);
+                Properties.Settings.Default.My_alarms.Add(addAlarms.Alarm.ToString());
             }
                Properties.Settings.Default.Save();
         }
@@ -45,8 +45,14 @@ namespace Clock
         {
             if (ListBoxAlarms.SelectedItem != null)
             {
-                AddAlarms Addalarm = new AddAlarms(ListBoxAlarms.SelectedItem.ToString());
-                Addalarm.ShowDialog(this);
+                //AddAlarms Addalarm = new AddAlarms(ListBoxAlarms.SelectedItem.ToString());
+                AddAlarms Addalarm = new AddAlarms((sender as ListBox).SelectedItem as Alarm);
+                
+                if(Addalarm.ShowDialog(this) == DialogResult.OK)
+                {
+                    ListBoxAlarms.SelectedItem = Addalarm.Alarm;
+                    ListBoxAlarms.Items[ListBoxAlarms.SelectedIndex] = ListBoxAlarms.Items[ListBoxAlarms.SelectedIndex];
+                }
             }
         }
     }

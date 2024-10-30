@@ -27,7 +27,7 @@ namespace Clock
         public MainForm()
         {
             InitializeComponent();
-            AllocConsole();
+            //AllocConsole();
             SetFontDirectory();
             this.TransparencyKey = Color.Empty;
             backgroundColorDialog = new ColorDialog();

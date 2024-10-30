@@ -12,15 +12,39 @@ namespace Clock
 {
     public partial class AddAlarms : Form
     {
-        internal Alarm alarm { get; set; }
+        internal Alarm Alarm { get; set; }
         
         public AddAlarms()
         {
             InitializeComponent();
-            alarm = new Alarm();
+            Alarm = new Alarm();
             FileNameSound.MaximumSize = new Size(this.Width - 25, 30);
             OpenFileDialogSound.Filter = "MP-3 (*.mp3)|*.mp3|Flac (*.flac)|*.flac|All Audio|*.mp3;*flac";
         }
+
+        internal AddAlarms(Alarm alarm) : this()
+        {
+            this.Alarm = alarm;
+            InitWindowFromAlarm();
+        }
+
+        void InitWindowFromAlarm()
+        {
+            if(Alarm.Date!= DateTime.MinValue)this.dateTimePickerDate.Text = Alarm.Date.ToShortDateString();
+            if (Alarm.Time != DateTime.MinValue)this.dateTimePickerTime.Text = Alarm.Time.ToString("hh:mm:ss");
+            this.FileNameSound.Text = Alarm.Filename;
+
+
+            for (int i = 0; i < Alarm.Weekdays.Length; ++i) Alarm.Weekdays[i] = false;
+            for(int i = 0; i< Alarm.WeekDayNames.Length; i++)
+            {
+               // alarm.Weekdays[i] = checkedListBoxWeek.GetItemChecked(i);
+                checkedListBoxWeek.SetItemChecked(i, Alarm.Weekdays[i]);
+            }
+
+           
+        }
+
         public AddAlarms(string stralarm)
         {
             InitializeComponent();
@@ -40,18 +64,18 @@ namespace Clock
                         checkedListBoxWeek.SetItemChecked(Array.IndexOf(Alarm.WeekDayNames, comps[i].Remove(0, 1)), true);
             }
             FileNameSound.Text = comps.Last();
-            ChooseOkB.Enabled = false;
+            
         }
 
 
         void initAlarm()
         {
-            if (dateTimePickerDate.Enabled)alarm.Date = dateTimePickerDate.Value;
-            alarm.Time = dateTimePickerTime.Value;
-            alarm.Filename = FileNameSound.Text;
+            if (dateTimePickerDate.Enabled)Alarm.Date = dateTimePickerDate.Value;
+            Alarm.Time = dateTimePickerTime.Value;
+            Alarm.Filename = FileNameSound.Text;
             for (int i = 0; i < checkedListBoxWeek.CheckedIndices.Count; ++i)
             {
-                alarm.Weekdays[checkedListBoxWeek.CheckedIndices[i]] = true;
+                Alarm.Weekdays[checkedListBoxWeek.CheckedIndices[i]] = true;
                 Console.Write(checkedListBoxWeek.CheckedIndices[i] + "\t");
    // Property 'ChecckedIndices' is a collection, which contents  indexes of choosen Checks in checklistbox
             }
@@ -79,7 +103,7 @@ namespace Clock
         {
             if (OpenFileDialogSound.ShowDialog(this) == DialogResult.OK)
             {
-                alarm.Filename = FileNameSound.Text = OpenFileDialogSound.FileName;
+                Alarm.Filename = FileNameSound.Text = OpenFileDialogSound.FileName;
             }
         }
     }

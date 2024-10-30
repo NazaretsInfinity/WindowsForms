@@ -25,7 +25,9 @@ namespace Clock
 
         string WeekDaysToString()
         {
+            bool present = false;
             string days = ""; 
+           
             for(int i = 0; i <WeekDayNames.Length; ++i)
             {
                 if (Weekdays[i])
