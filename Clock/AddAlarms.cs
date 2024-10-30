@@ -38,9 +38,9 @@ namespace Clock
                 dateTimePickerTime.Text = comps[0];
                 for (int i = 1; i < comps.Length; ++i)
                 {
-                    if (Alarm.WeekDayNames.Contains(comps[i]))
+                    if (Alarm.WeekDayNames.Contains(comps[i].Remove(0,1)))
                     {
-                        checkedListBoxWeek.SetItemChecked(i, true);
+                        checkedListBoxWeek.SetItemChecked(Array.IndexOf(Alarm.WeekDayNames, comps[i].Remove(0, 1)), true);
                     }
                 }
             }

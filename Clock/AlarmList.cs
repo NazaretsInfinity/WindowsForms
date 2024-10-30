@@ -43,8 +43,11 @@ namespace Clock
 
         private void ListBoxAlarms_DoubleClick(object sender, EventArgs e)
         {
-            AddAlarms Addalarm = new AddAlarms(ListBoxAlarms.SelectedItem.ToString());
-            Addalarm.ShowDialog(this);
+            if (ListBoxAlarms.SelectedItem != null)
+            {
+                AddAlarms Addalarm = new AddAlarms(ListBoxAlarms.SelectedItem.ToString());
+                Addalarm.ShowDialog(this);
+            }
         }
     }
 }
