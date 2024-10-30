@@ -108,6 +108,7 @@ namespace Clock
             SaveB.Visible = visible;
             labelTime.Left = visible ? 26 : this.Width - labelTime.Width - 40;
             labelTime.Top = visible ? 21 : 0;
+            
 
         }
 
@@ -232,11 +233,11 @@ namespace Clock
                 int x = labelTime.Left + e.X - CursorLoc.X;// e.X and e.Y are relatively labelTime scope(start from its up left corner)
                 int y = labelTime.Top + e.Y - CursorLoc.Y;
 
-                if (x > 0)
-                    labelTime.Left = x;
-
-                if (y > 0)
+                if (x > 0 && x < this.Width - labelTime.Width)
+                    labelTime.Left = x;                
+                if (y > 0 && y < this.Height - labelTime.Height)
                     labelTime.Top = y;
+                
 
 
             }
@@ -246,8 +247,12 @@ namespace Clock
         private void labelTime_MouseDown(object sender, MouseEventArgs e) // 'cause the button is being held down
         {                                                                 // 'click' needs to be released to perform the event.
            CursorLoc = e.Location;
-
+           // if(!HideControls.Visible)
+           // this.Location = new Point(0,0);
+           // this.Width = Screen.PrimaryScreen.WorkingArea.Width;
+           // this.Width = Screen.PrimaryScreen.WorkingArea.Height;
         }
+       
        
 
  
@@ -260,5 +265,6 @@ namespace Clock
         [DllImport("kernel32.dll")]
         static extern bool AllocConsole();
 
+       
     }
 }

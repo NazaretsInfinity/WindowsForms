@@ -70,7 +70,7 @@
             this.labelTime.Text = "Time ✿";
             this.labelTime.DoubleClick += new System.EventHandler(this.labelTime_DoubleClick);
             this.labelTime.MouseDown += new System.Windows.Forms.MouseEventHandler(this.labelTime_MouseDown);
-           
+          
             this.labelTime.MouseMove += new System.Windows.Forms.MouseEventHandler(this.labelTime_MouseMove);
            
             // 
