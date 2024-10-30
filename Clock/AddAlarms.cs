@@ -30,20 +30,17 @@ namespace Clock
                 checkBoxExactDate.Checked = true;
                 dateTimePickerDate.Text = comps[0];
                 dateTimePickerTime.Text = comps[1];
-
             }
             else
             {
                 checkBoxExactDate.Checked = false;
                 dateTimePickerTime.Text = comps[0];
                 for (int i = 1; i < comps.Length; ++i)
-                {
-                    if (Alarm.WeekDayNames.Contains(comps[i].Remove(0,1)))
-                    {
+                    if (Alarm.WeekDayNames.Contains(comps[i].Remove(0, 1)))
                         checkedListBoxWeek.SetItemChecked(Array.IndexOf(Alarm.WeekDayNames, comps[i].Remove(0, 1)), true);
-                    }
-                }
             }
+            FileNameSound.Text = comps.Last();
+            ChooseOkB.Enabled = false;
         }
 
 
