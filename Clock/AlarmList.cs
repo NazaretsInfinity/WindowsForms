@@ -15,8 +15,8 @@ namespace Clock
         public AlarmList()
         {
             InitializeComponent();
-           // for (int i = 0; i < Properties.Settings.Default.My_alarms.Count; i++)
-           // ListBoxAlarms.Items.Add(Properties.Settings.Default.My_alarms[i]);
+           for (int i = 0; i < Properties.Settings.Default.My_alarms.Count; i++)
+           ListBoxAlarms.Items.Add(Properties.Settings.Default.My_alarms[i]);
             
         }
 
@@ -35,9 +35,6 @@ namespace Clock
         private void CancelB_Click(object sender, EventArgs e)
         {
             this.Close(); 
-          Properties.Settings.Default.My_alarms.Clear();
-          ListBoxAlarms.Items.Clear();                
-           Properties.Settings.Default.Save();
         }
 
 
@@ -54,6 +51,14 @@ namespace Clock
                     ListBoxAlarms.Items[ListBoxAlarms.SelectedIndex] = ListBoxAlarms.Items[ListBoxAlarms.SelectedIndex];
                 }
             }
+        }
+
+        private void DeleteB_Click(object sender, EventArgs e)
+        {
+            ListBoxAlarms.Items.Remove(ListBoxAlarms.SelectedItem);
+           
+           Properties.Settings.Default.My_alarms.RemoveAt(ListBoxAlarms.SelectedIndex + 2);
+           Properties.Settings.Default.Save();
         }
     }
 }

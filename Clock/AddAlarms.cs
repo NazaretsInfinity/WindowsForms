@@ -35,7 +35,7 @@ namespace Clock
             this.FileNameSound.Text = Alarm.Filename;
 
 
-            for (int i = 0; i < Alarm.Weekdays.Length; ++i) Alarm.Weekdays[i] = false;
+            for (int i = 0; i < Alarm.Weekdays.Length; i++) Alarm.Weekdays[i] = false;
             for(int i = 0; i< Alarm.WeekDayNames.Length; i++)
             {
                // alarm.Weekdays[i] = checkedListBoxWeek.GetItemChecked(i);

@@ -85,6 +85,7 @@
             this.DeleteB.TabIndex = 3;
             this.DeleteB.Text = "Delete";
             this.DeleteB.UseVisualStyleBackColor = false;
+            this.DeleteB.Click += new System.EventHandler(this.DeleteB_Click);
             // 
             // AlarmList
             // 
@@ -99,7 +100,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AlarmList";
             this.Text = "AlarmList";
-           
             this.ResumeLayout(false);
 
         }
