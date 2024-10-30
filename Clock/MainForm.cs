@@ -15,6 +15,7 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 
+
 namespace Clock
 {
     public partial class MainForm : Form
@@ -23,16 +24,19 @@ namespace Clock
         ColorDialog foregroundColorDialog;
         FontChooser chooseFontDialog;
         AlarmList alarmList;
+
+        Alarm alarm;
         string FontName { get; set; }
         public MainForm()
         {
             InitializeComponent();
-            //AllocConsole();
+            AllocConsole();
             SetFontDirectory();
             this.TransparencyKey = Color.Empty;
             backgroundColorDialog = new ColorDialog();
             foregroundColorDialog = new ColorDialog();
             alarmList = new AlarmList();
+            alarm = new Alarm();
             //Properties.Settings.Default.My_alarms = new System.Collections.Specialized.StringCollection();
             //  LoadSettings();
 
@@ -89,6 +93,21 @@ namespace Clock
             //MessageBox.Show(Directory.GetCurrentDirectory());
         }
 
+        void GetNextAlarm()
+        {
+            if (alarmList.ListBoxAlarmsG != null)
+            {
+                List<Alarm> alarms = new List<Alarm>();
+                foreach (Alarm item in alarmList.ListBoxAlarmsG.Items)
+                {
+                    alarms.Add(item);
+                }
+              if(alarms.Min() != null) alarm = alarms.Min();
+                //Console.WriteLine(alarm);
+                
+            }
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             labelTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
@@ -96,6 +115,12 @@ namespace Clock
             {
                 labelTime.Text += $"\n{DateTime.Today.ToString("dd.MM.yyyy")}";
             }
+            GetNextAlarm();
+            if(DateTime.Now.Second == alarm.Date.Second &&
+                DateTime.Now.Minute == alarm.Date.Minute)
+                {
+                    MessageBox.Show("Alarm up", "Alarm", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
         }
 
         private void SetVisibility(bool visible)

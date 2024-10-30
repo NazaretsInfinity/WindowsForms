@@ -8,14 +8,20 @@ using System.Windows.Forms;
 
 namespace Clock
 {
-    internal class Alarm
+    internal class Alarm :IComparable
+
     {
+         public int CompareTo(object other)
+         {
+           return this.Time.CompareTo((other as Alarm).Time);
+         }
+
         public static readonly string[] WeekDayNames = new string[7]{"Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday", "Sunday"};
         public DateTime Date { get; set; } 
         public DateTime Time { get; set; }
 
         public bool[] Weekdays { get; private set; }  = new bool[7];
-        public string Filename { get; set; }
+        public string Filename { get; set; } = " ";
 
        
         public Alarm()
@@ -34,6 +40,15 @@ namespace Clock
                 days += WeekDayNames[i] + ", ";
             }
             return days;
+        }
+
+        public Alarm(Alarm other) : this()
+        {
+            this.Date = other.Date;
+            this.Time = other.Time; 
+            this.Filename = other.Filename;
+            for(int i = 0;i < Weekdays.Length; ++i)this.Weekdays[i] = other.Weekdays[i];
+
         }
 
         public override string ToString()

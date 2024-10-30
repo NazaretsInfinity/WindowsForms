@@ -10,13 +10,19 @@ using System.Windows.Forms;
 
 namespace Clock
 {
-    public partial class AlarmList : Form
+    public partial class AlarmList : Form 
     {
+
+       
+        public ListBox ListBoxAlarmsG
+        { get => ListBoxAlarms;
+            
+            private set=> ListBoxAlarms = value; }
         public AlarmList()
         {
             InitializeComponent();
-           for (int i = 0; i < Properties.Settings.Default.My_alarms.Count; i++)
-           ListBoxAlarms.Items.Add(Properties.Settings.Default.My_alarms[i]);
+          // for (int i = 0; i < Properties.Settings.Default.My_alarms.Count; i++)
+          // ListBoxAlarms.Items.Add(Properties.Settings.Default.My_alarms[i]);
             
         }
 
