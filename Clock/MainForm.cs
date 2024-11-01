@@ -37,6 +37,7 @@ namespace Clock
             foregroundColorDialog = new ColorDialog();
             alarmList = new AlarmList();
             alarm = new Alarm();
+            GetNextAlarm();
             //Properties.Settings.Default.My_alarms = new System.Collections.Specialized.StringCollection();
             //  LoadSettings();
 
@@ -97,7 +98,7 @@ namespace Clock
             List<Alarm> alarms = new List<Alarm>();
             foreach (Alarm item in alarmList.ListBoxAlarms.Items)
             {
-                alarms.Add(item);
+                if(item.Time > DateTime.Now)alarms.Add(item);
             }
             if (alarms.Min() != null)alarm = alarms.Min();
             Console.WriteLine(alarm);
@@ -111,18 +112,33 @@ namespace Clock
                 labelTime.Text += $"\n{DateTime.Today.ToString("dd.MM.yyyy")}";
             }
 
-            //here we call GetNextAlarm
-            if(alarmList.ListBoxAlarms.Items.Count!=0 && nextalarm)GetNextAlarm();
+            if(showWeekDayToolStripMenuItem.Checked)
+            {
+                labelTime.Text += $"\n{DateTime.Now.DayOfWeek}";
+            }
+
             
-         
-            if (DateTime.Now.Hour == alarm.Time.Hour &&
+            if(alarmList.ListBoxAlarms.Items.Count!=0 && nextalarm) GetNextAlarm();
+
+            int day = (int)DateTime.Now.DayOfWeek;
+            day = day == 0 ? 6 : day - 1;
+            if (
+                alarm.Weekdays[day] == true && 
+                DateTime.Now.Hour == alarm.Time.Hour &&
                 DateTime.Now.Minute == alarm.Time.Minute &&
-                DateTime.Now.Second == alarm.Time.Second &&
-                alarm.WeekDaysToString().Contains(DateTime.Now.DayOfWeek.ToString()))
+                DateTime.Now.Second == alarm.Time.Second )
+               // && alarm.WeekDaysToString().Contains(DateTime.Now.DayOfWeek.ToString()))
             {
                     MessageBox.Show("Alarm up", "Alarm", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     nextalarm = true;
             }
+           
+            if(DateTime.Now.Minute == 0)
+            {
+                GetNextAlarm();
+                Console.WriteLine("Minute");
+            }
+
         }
 
 

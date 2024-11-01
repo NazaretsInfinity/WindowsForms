@@ -36,6 +36,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.showControlsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showWeekDayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.colorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.foregroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,9 +71,7 @@
             this.labelTime.Text = "Time ✿";
             this.labelTime.DoubleClick += new System.EventHandler(this.labelTime_DoubleClick);
             this.labelTime.MouseDown += new System.Windows.Forms.MouseEventHandler(this.labelTime_MouseDown);
-          
             this.labelTime.MouseMove += new System.Windows.Forms.MouseEventHandler(this.labelTime_MouseMove);
-           
             // 
             // ContextMenu
             // 
@@ -82,6 +81,7 @@
             this.toolStripSeparator1,
             this.showControlsToolStripMenuItem,
             this.showDateToolStripMenuItem,
+            this.showWeekDayToolStripMenuItem,
             this.toolStripSeparator2,
             this.colorsToolStripMenuItem,
             this.fontsToolStripMenuItem,
@@ -92,7 +92,7 @@
             this.toolStripSeparator4,
             this.closeToolStripMenuItem});
             this.ContextMenu.Name = "ContextMenu";
-            this.ContextMenu.Size = new System.Drawing.Size(250, 226);
+            this.ContextMenu.Size = new System.Drawing.Size(250, 250);
             // 
             // topMostToolStripMenuItem
             // 
@@ -122,6 +122,13 @@
             this.showDateToolStripMenuItem.Size = new System.Drawing.Size(249, 24);
             this.showDateToolStripMenuItem.Text = "Show Date";
             this.showDateToolStripMenuItem.Click += new System.EventHandler(this.ShowDateToolStripMenuItem_Click);
+            // 
+            // showWeekDayToolStripMenuItem
+            // 
+            this.showWeekDayToolStripMenuItem.CheckOnClick = true;
+            this.showWeekDayToolStripMenuItem.Name = "showWeekDayToolStripMenuItem";
+            this.showWeekDayToolStripMenuItem.Size = new System.Drawing.Size(249, 24);
+            this.showWeekDayToolStripMenuItem.Text = "Show week day";
             // 
             // toolStripSeparator2
             // 
@@ -294,6 +301,7 @@
         private System.Windows.Forms.Button SaveB;
         private System.Windows.Forms.ToolStripMenuItem alarmsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem showWeekDayToolStripMenuItem;
     }
 }
 

@@ -17,6 +17,7 @@ namespace Clock
         public AddAlarms()
         {
             InitializeComponent();
+            
             Alarm = new Alarm();
             FileNameSound.MaximumSize = new Size(this.Width - 25, 30);
             OpenFileDialogSound.Filter = "MP-3 (*.mp3)|*.mp3|Flac (*.flac)|*.flac|All Audio|*.mp3;*flac";
