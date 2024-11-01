@@ -20,7 +20,7 @@ namespace Clock
         public DateTime Date { get; set; } 
         public DateTime Time { get; set; }
 
-        public bool[] Weekdays { get; private set; }  = new bool[7];
+        public bool[] Weekdays { get; private set; } 
         public string Filename { get; set; } = " ";
 
        
@@ -31,7 +31,6 @@ namespace Clock
 
         string WeekDaysToString()
         {
-            bool present = false;
             string days = ""; 
            
             for(int i = 0; i <WeekDayNames.Length; ++i)
