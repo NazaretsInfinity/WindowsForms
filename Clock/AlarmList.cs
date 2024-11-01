@@ -11,13 +11,11 @@ using System.Windows.Forms;
 namespace Clock
 {
     public partial class AlarmList : Form 
-    {
-
-       
-        public ListBox ListBoxAlarmsG
-        { get => ListBoxAlarms;
-            
-            private set=> ListBoxAlarms = value; }
+    {      
+        public ListBox ListBoxAlarms
+        { get => listBoxAlarms;
+          private set=> listBoxAlarms = value;
+        }
         public AlarmList()
         {
             InitializeComponent();
@@ -31,7 +29,7 @@ namespace Clock
             AddAlarms addAlarms = new AddAlarms();
             if (addAlarms.ShowDialog() == DialogResult.OK)
             {
-                ListBoxAlarms.Items.Add(addAlarms.Alarm);
+                listBoxAlarms.Items.Add(addAlarms.Alarm);
                 Properties.Settings.Default.My_alarms.Add(addAlarms.Alarm.ToString());
             }
                Properties.Settings.Default.Save();
@@ -46,24 +44,23 @@ namespace Clock
 
         private void ListBoxAlarms_DoubleClick(object sender, EventArgs e)
         {
-            if (ListBoxAlarms.SelectedItem != null)
+            if (listBoxAlarms.SelectedItem != null)
             {
-                //AddAlarms Addalarm = new AddAlarms(ListBoxAlarms.SelectedItem.ToString());
                 AddAlarms Addalarm = new AddAlarms((sender as ListBox).SelectedItem as Alarm);
                 
                 if(Addalarm.ShowDialog(this) == DialogResult.OK)
                 {
-                    ListBoxAlarms.SelectedItem = Addalarm.Alarm;
-                    ListBoxAlarms.Items[ListBoxAlarms.SelectedIndex] = ListBoxAlarms.Items[ListBoxAlarms.SelectedIndex];
+                    listBoxAlarms.SelectedItem = Addalarm.Alarm;
+                    listBoxAlarms.Items[listBoxAlarms.SelectedIndex] = listBoxAlarms.Items[listBoxAlarms.SelectedIndex];
                 }
             }
         }
 
         private void DeleteB_Click(object sender, EventArgs e)
         {
-            ListBoxAlarms.Items.Remove(ListBoxAlarms.SelectedItem);
+            listBoxAlarms.Items.Remove(listBoxAlarms.SelectedItem);
            
-           Properties.Settings.Default.My_alarms.RemoveAt(ListBoxAlarms.SelectedIndex + 2);
+           Properties.Settings.Default.My_alarms.RemoveAt(listBoxAlarms.SelectedIndex + 2);
            Properties.Settings.Default.Save();
         }
     }

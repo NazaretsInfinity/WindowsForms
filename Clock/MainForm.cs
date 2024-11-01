@@ -20,11 +20,11 @@ namespace Clock
 {
     public partial class MainForm : Form
     {
+        bool nextalarm = true;
         ColorDialog backgroundColorDialog;
         ColorDialog foregroundColorDialog;
         FontChooser chooseFontDialog;
         AlarmList alarmList;
-
         Alarm alarm;
         string FontName { get; set; }
         public MainForm()
@@ -44,15 +44,12 @@ namespace Clock
             //labelTime.BackColor  = Properties.Settings.Default.MyBackColor;  
             //labelTime.ForeColor = Properties.Settings.Default.MyForeColor;
 
-
-
             this.Left = 300;// Screen.PrimaryScreen.Bounds.Width - this.Width;
             this.Top = 0;
             SetVisibility(false);
-
-
             chooseFontDialog = new FontChooser();
             // MessageBox.Show($"{Assembly.GetEntryAssembly().Location}", "Message", MessageBoxButtons.OK);
+           
         }
 
         void SaveSettings()
@@ -63,7 +60,6 @@ namespace Clock
             // sw.WriteLine(chooseFontDialog.FontFile.Split('\\').Last());
             sw.Close();
         }
-
         void LoadSettings()
         {
             StreamReader sr = new StreamReader("Settings.txt");
@@ -83,6 +79,7 @@ namespace Clock
                 loadOnWindowsStartupToolStripMenuItem.Checked = true;
             register.Dispose();
         }
+
         void SetFontDirectory()
         {
             string location = Assembly.GetEntryAssembly().Location; // full address to exe file
@@ -93,21 +90,19 @@ namespace Clock
             //MessageBox.Show(Directory.GetCurrentDirectory());
         }
 
-        void GetNextAlarm()
-        {
-            if (alarmList.ListBoxAlarmsG != null)
-            {
-                List<Alarm> alarms = new List<Alarm>();
-                foreach (Alarm item in alarmList.ListBoxAlarmsG.Items)
-                {
-                    alarms.Add(item);
-                }
-              if(alarms.Min() != null) alarm = alarms.Min();
-                //Console.WriteLine(alarm);
-                
-            }
-        }
 
+        //ALARM AND TIMER
+        void GetNextAlarm()
+        {          
+            List<Alarm> alarms = new List<Alarm>();
+            foreach (Alarm item in alarmList.ListBoxAlarms.Items)
+            {
+                alarms.Add(item);
+            }
+            if (alarms.Min() != null)alarm = alarms.Min();
+            Console.WriteLine(alarm);
+            nextalarm = false;          
+        }
         private void timer1_Tick(object sender, EventArgs e)
         {
             labelTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
@@ -115,14 +110,22 @@ namespace Clock
             {
                 labelTime.Text += $"\n{DateTime.Today.ToString("dd.MM.yyyy")}";
             }
-            GetNextAlarm();
-            if(DateTime.Now.Second == alarm.Date.Second &&
-                DateTime.Now.Minute == alarm.Date.Minute)
-                {
+
+            //here we call GetNextAlarm
+            if(alarmList.ListBoxAlarms.Items.Count!=0 && nextalarm)GetNextAlarm();
+            
+         
+            if (DateTime.Now.Hour == alarm.Time.Hour &&
+                DateTime.Now.Minute == alarm.Time.Minute &&
+                DateTime.Now.Second == alarm.Time.Second) //&& DateTime.Now.Minute == alarm.Date.Minute)
+            {
                     MessageBox.Show("Alarm up", "Alarm", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                    nextalarm = true;
+            }
         }
 
+
+        //CONTROLS
         private void SetVisibility(bool visible)
         {
             this.TransparencyKey = visible ? Color.Empty : this.BackColor;

@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlarmList));
-            this.ListBoxAlarms = new System.Windows.Forms.ListBox();
+            this.listBoxAlarms = new System.Windows.Forms.ListBox();
             this.AddB = new System.Windows.Forms.Button();
             this.CancelB = new System.Windows.Forms.Button();
             this.DeleteB = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // ListBoxAlarms
+            // listBoxAlarms
             // 
-            this.ListBoxAlarms.BackColor = System.Drawing.Color.OliveDrab;
-            this.ListBoxAlarms.Font = new System.Drawing.Font("Niagara Engraved", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ListBoxAlarms.ForeColor = System.Drawing.Color.Gold;
-            this.ListBoxAlarms.FormattingEnabled = true;
-            this.ListBoxAlarms.ItemHeight = 29;
-            this.ListBoxAlarms.Location = new System.Drawing.Point(12, 22);
-            this.ListBoxAlarms.Name = "ListBoxAlarms";
-            this.ListBoxAlarms.Size = new System.Drawing.Size(494, 178);
-            this.ListBoxAlarms.TabIndex = 0;
-            this.ListBoxAlarms.DoubleClick += new System.EventHandler(this.ListBoxAlarms_DoubleClick);
+            this.listBoxAlarms.BackColor = System.Drawing.Color.OliveDrab;
+            this.listBoxAlarms.Font = new System.Drawing.Font("Niagara Engraved", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxAlarms.ForeColor = System.Drawing.Color.Gold;
+            this.listBoxAlarms.FormattingEnabled = true;
+            this.listBoxAlarms.ItemHeight = 29;
+            this.listBoxAlarms.Location = new System.Drawing.Point(12, 22);
+            this.listBoxAlarms.Name = "listBoxAlarms";
+            this.listBoxAlarms.Size = new System.Drawing.Size(494, 178);
+            this.listBoxAlarms.TabIndex = 0;
+            this.listBoxAlarms.DoubleClick += new System.EventHandler(this.ListBoxAlarms_DoubleClick);
             // 
             // AddB
             // 
@@ -96,7 +96,7 @@
             this.Controls.Add(this.DeleteB);
             this.Controls.Add(this.CancelB);
             this.Controls.Add(this.AddB);
-            this.Controls.Add(this.ListBoxAlarms);
+            this.Controls.Add(this.listBoxAlarms);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AlarmList";
             this.Text = "AlarmList";
@@ -106,7 +106,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox ListBoxAlarms;
+        private System.Windows.Forms.ListBox listBoxAlarms;
         private System.Windows.Forms.Button AddB;
         private System.Windows.Forms.Button CancelB;
         private System.Windows.Forms.Button DeleteB;
