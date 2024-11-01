@@ -37,7 +37,6 @@ namespace Clock
             foregroundColorDialog = new ColorDialog();
             alarmList = new AlarmList();
             alarm = new Alarm();
-            GetNextAlarm();
             //Properties.Settings.Default.My_alarms = new System.Collections.Specialized.StringCollection();
             //  LoadSettings();
 
@@ -129,8 +128,9 @@ namespace Clock
                 DateTime.Now.Second == alarm.Time.Second )
                // && alarm.WeekDaysToString().Contains(DateTime.Now.DayOfWeek.ToString()))
             {
-                    MessageBox.Show("Alarm up", "Alarm", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    nextalarm = true;
+                //MessageBox.Show("Alarm up", "Alarm", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Playalarm();
+                nextalarm = true;
             }
            
             if(DateTime.Now.Minute == 0)
@@ -143,6 +143,15 @@ namespace Clock
 
 
         //CONTROLS
+
+        void Playalarm()
+        {
+            axWindowsMediaPlayer.URL = alarm.Filename;
+            axWindowsMediaPlayer.settings.volume = 5;
+            axWindowsMediaPlayer.Ctlcontrols.play();
+            axWindowsMediaPlayer.Visible = true;
+
+        }
         private void SetVisibility(bool visible)
         {
             this.TransparencyKey = visible ? Color.Empty : this.BackColor;
@@ -153,6 +162,8 @@ namespace Clock
             SaveB.Visible = visible;
             labelTime.Left = visible ? 26 : this.Width - labelTime.Width - 40;
             labelTime.Top = visible ? 21 : 0;
+            axWindowsMediaPlayer.Visible = visible;
+
             
 
         }
@@ -310,6 +321,9 @@ namespace Clock
         [DllImport("kernel32.dll")]
         static extern bool AllocConsole();
 
-       
+        private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
