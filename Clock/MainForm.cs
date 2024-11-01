@@ -117,7 +117,8 @@ namespace Clock
          
             if (DateTime.Now.Hour == alarm.Time.Hour &&
                 DateTime.Now.Minute == alarm.Time.Minute &&
-                DateTime.Now.Second == alarm.Time.Second) //&& DateTime.Now.Minute == alarm.Date.Minute)
+                DateTime.Now.Second == alarm.Time.Second &&
+                alarm.WeekDaysToString().Contains(DateTime.Now.DayOfWeek.ToString()))
             {
                     MessageBox.Show("Alarm up", "Alarm", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     nextalarm = true;

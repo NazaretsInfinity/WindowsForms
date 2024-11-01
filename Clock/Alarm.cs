@@ -29,7 +29,7 @@ namespace Clock
             Weekdays = new bool[7];
         }
 
-        string WeekDaysToString()
+         public string WeekDaysToString()
         {
             string days = ""; 
            
