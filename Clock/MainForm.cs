@@ -50,7 +50,6 @@ namespace Clock
             SetVisibility(false);
             chooseFontDialog = new FontChooser();
             // MessageBox.Show($"{Assembly.GetEntryAssembly().Location}", "Message", MessageBoxButtons.OK);
-           
         }
 
         void SaveSettings()
@@ -116,7 +115,7 @@ namespace Clock
 
             int day = (int)DateTime.Now.DayOfWeek;
             day = day == 0 ? 6 : day - 1;
-            if (
+            if (alarm!= null && 
                 alarm.Weekdays[day] == true && 
                 DateTime.Now.Hour == alarm.Time.Hour &&
                 DateTime.Now.Minute == alarm.Time.Minute &&
