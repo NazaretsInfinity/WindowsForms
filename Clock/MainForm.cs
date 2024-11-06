@@ -37,14 +37,8 @@ namespace Clock
             foregroundColorDialog = new ColorDialog();
             alarmList = new AlarmList();
             alarm = new Alarm();
-            if (alarmList.ListBoxAlarms.Items.Count != 0) GetNextAlarm();
-            //Properties.Settings.Default.My_alarms = new System.Collections.Specialized.StringCollection();
-            //  LoadSettings();
-
-
-            //labelTime.BackColor  = Properties.Settings.Default.MyBackColor;  
-            //labelTime.ForeColor = Properties.Settings.Default.MyForeColor;
-
+            //if (alarmList.ListBoxAlarms.Items.Count != 0)  GetNextAlarm();
+            LoadSettings();
             this.Left = 300;// Screen.PrimaryScreen.Bounds.Width - this.Width;
             this.Top = 0;
             SetVisibility(false);
@@ -117,7 +111,7 @@ namespace Clock
             int day = (int)DateTime.Now.DayOfWeek;
             day = day == 0 ? 6 : day - 1;
             if (
-                alarm.Weekdays[day] == true && 
+                //alarm.Weekdays[day] == true && 
                 DateTime.Now.Hour == alarm.Time.Hour &&
                 DateTime.Now.Minute == alarm.Time.Minute &&
                 DateTime.Now.Second == alarm.Time.Second )
@@ -126,7 +120,7 @@ namespace Clock
                 GetNextAlarm();
             }  
             
-            if(DateTime.Now.Second == 0)
+            if(DateTime.Now.Second == 0 && alarmList.ListBoxAlarms.Items.Count!= 0)
             {
                 GetNextAlarm();
                 Console.WriteLine("Minute");
@@ -136,11 +130,10 @@ namespace Clock
 
 
         //CONTROLS
-
         void Playalarm()
         {
             axWindowsMediaPlayer.URL = alarm.Filename;
-            axWindowsMediaPlayer.settings.volume = 3;
+            axWindowsMediaPlayer.settings.volume = 5;
             axWindowsMediaPlayer.Ctlcontrols.play();
             axWindowsMediaPlayer.Visible = true;
 
@@ -301,8 +294,6 @@ namespace Clock
         }
 
         [DllImport("kernel32.dll")]
-        static extern bool AllocConsole();
-
-       
+        static extern bool AllocConsole();  
     }
 }

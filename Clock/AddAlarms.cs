@@ -77,10 +77,9 @@ namespace Clock
             for (int i = 0; i < checkedListBoxWeek.CheckedIndices.Count; ++i)
             {
                 Alarm.Weekdays[checkedListBoxWeek.CheckedIndices[i]] = true;
-                Console.Write(checkedListBoxWeek.CheckedIndices[i] + "\t");
+                Console.WriteLine("Add alarm: new alarm added");
    // Property 'ChecckedIndices' is a collection, which contents  indexes of choosen Checks in checklistbox
             }
-            Console.WriteLine();
         }
        
 
