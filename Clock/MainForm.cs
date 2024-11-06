@@ -32,6 +32,7 @@ namespace Clock
             InitializeComponent();
             AllocConsole();
             SetFontDirectory();
+           
             this.TransparencyKey = Color.Empty;
             backgroundColorDialog = new ColorDialog();
             foregroundColorDialog = new ColorDialog();
@@ -116,7 +117,7 @@ namespace Clock
             int day = (int)DateTime.Now.DayOfWeek;
             day = day == 0 ? 6 : day - 1;
             if (
-                //alarm.Weekdays[day] == true && 
+                alarm.Weekdays[day] == true && 
                 DateTime.Now.Hour == alarm.Time.Hour &&
                 DateTime.Now.Minute == alarm.Time.Minute &&
                 DateTime.Now.Second == alarm.Time.Second )
@@ -135,14 +136,6 @@ namespace Clock
 
 
         //CONTROLS
-        void Playalarm()
-        {
-            axWindowsMediaPlayer.URL = alarm.Filename;
-            axWindowsMediaPlayer.settings.volume = 5;
-            axWindowsMediaPlayer.Ctlcontrols.play();
-            axWindowsMediaPlayer.Visible = true;
-
-        }
         private void SetVisibility(bool visible)
         {
             this.TransparencyKey = visible ? Color.Empty : this.BackColor;
@@ -284,7 +277,6 @@ namespace Clock
 
             }
         }
-
         Point CursorLoc { get; set; }
         private void labelTime_MouseDown(object sender, MouseEventArgs e) // 'cause the button is being held down
         {                                                                 // 'click' needs to be released to perform the event.
@@ -292,10 +284,23 @@ namespace Clock
         }
 
 
-  
-        void SetPlayerInvisible(object sender , AxWMPLib._WMPOCXEvents_EndOfStreamEvent e)
+        bool PlayerIsOn = false;
+        //MEDIA PLAYER VISIBILITY
+        void SetPlayerInvisible(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
         {
+            if (axWindowsMediaPlayer.playState != WMPLib.WMPPlayState.wmppsPlaying)
             axWindowsMediaPlayer.Visible = false;
+        }
+
+     
+        void Playalarm()
+        {
+            axWindowsMediaPlayer.URL = alarm.Filename;
+            axWindowsMediaPlayer.settings.volume = 20;
+            axWindowsMediaPlayer.Ctlcontrols.play();
+            axWindowsMediaPlayer.Visible = true;
+            PlayerIsOn = true;
+
         }
 
         [DllImport("kernel32.dll")]

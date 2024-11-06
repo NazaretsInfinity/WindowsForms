@@ -94,26 +94,26 @@
             this.toolStripSeparator4,
             this.closeToolStripMenuItem});
             this.ContextMenu.Name = "ContextMenu";
-            this.ContextMenu.Size = new System.Drawing.Size(250, 250);
+            this.ContextMenu.Size = new System.Drawing.Size(260, 268);
             // 
             // topMostToolStripMenuItem
             // 
             this.topMostToolStripMenuItem.CheckOnClick = true;
             this.topMostToolStripMenuItem.Name = "topMostToolStripMenuItem";
-            this.topMostToolStripMenuItem.Size = new System.Drawing.Size(249, 24);
+            this.topMostToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
             this.topMostToolStripMenuItem.Text = "TopMost";
             this.topMostToolStripMenuItem.CheckedChanged += new System.EventHandler(this.topMostToolStripMenuItem_CheckedChanged);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(246, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(256, 6);
             // 
             // showControlsToolStripMenuItem
             // 
             this.showControlsToolStripMenuItem.CheckOnClick = true;
             this.showControlsToolStripMenuItem.Name = "showControlsToolStripMenuItem";
-            this.showControlsToolStripMenuItem.Size = new System.Drawing.Size(249, 24);
+            this.showControlsToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
             this.showControlsToolStripMenuItem.Text = "Show Controls";
             this.showControlsToolStripMenuItem.CheckedChanged += new System.EventHandler(this.showControlsToolStripMenuItem_CheckedChanged);
             // 
@@ -121,7 +121,7 @@
             // 
             this.showDateToolStripMenuItem.CheckOnClick = true;
             this.showDateToolStripMenuItem.Name = "showDateToolStripMenuItem";
-            this.showDateToolStripMenuItem.Size = new System.Drawing.Size(249, 24);
+            this.showDateToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
             this.showDateToolStripMenuItem.Text = "Show Date";
             this.showDateToolStripMenuItem.Click += new System.EventHandler(this.ShowDateToolStripMenuItem_Click);
             // 
@@ -129,13 +129,13 @@
             // 
             this.showWeekDayToolStripMenuItem.CheckOnClick = true;
             this.showWeekDayToolStripMenuItem.Name = "showWeekDayToolStripMenuItem";
-            this.showWeekDayToolStripMenuItem.Size = new System.Drawing.Size(249, 24);
+            this.showWeekDayToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
             this.showWeekDayToolStripMenuItem.Text = "Show week day";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(246, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(256, 6);
             // 
             // colorsToolStripMenuItem
             // 
@@ -143,64 +143,64 @@
             this.foregroundColorToolStripMenuItem,
             this.backgroundColorToolStripMenuItem});
             this.colorsToolStripMenuItem.Name = "colorsToolStripMenuItem";
-            this.colorsToolStripMenuItem.Size = new System.Drawing.Size(249, 24);
+            this.colorsToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
             this.colorsToolStripMenuItem.Text = "Colors";
             // 
             // foregroundColorToolStripMenuItem
             // 
             this.foregroundColorToolStripMenuItem.Name = "foregroundColorToolStripMenuItem";
-            this.foregroundColorToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.foregroundColorToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.foregroundColorToolStripMenuItem.Text = "Foreground color";
             this.foregroundColorToolStripMenuItem.Click += new System.EventHandler(this.foregroundColorToolStripMenuItem_Click);
             // 
             // backgroundColorToolStripMenuItem
             // 
             this.backgroundColorToolStripMenuItem.Name = "backgroundColorToolStripMenuItem";
-            this.backgroundColorToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
+            this.backgroundColorToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.backgroundColorToolStripMenuItem.Text = "Background color";
             this.backgroundColorToolStripMenuItem.Click += new System.EventHandler(this.backgroundColorToolStripMenuItem_Click);
             // 
             // fontsToolStripMenuItem
             // 
             this.fontsToolStripMenuItem.Name = "fontsToolStripMenuItem";
-            this.fontsToolStripMenuItem.Size = new System.Drawing.Size(249, 24);
+            this.fontsToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
             this.fontsToolStripMenuItem.Text = "Fonts";
             this.fontsToolStripMenuItem.Click += new System.EventHandler(this.fontsToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(246, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(256, 6);
             // 
             // alarmsToolStripMenuItem
             // 
             this.alarmsToolStripMenuItem.Name = "alarmsToolStripMenuItem";
-            this.alarmsToolStripMenuItem.Size = new System.Drawing.Size(249, 24);
+            this.alarmsToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
             this.alarmsToolStripMenuItem.Text = "Alarms";
             this.alarmsToolStripMenuItem.Click += new System.EventHandler(this.alarmsToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(246, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(256, 6);
             // 
             // loadOnWindowsStartupToolStripMenuItem
             // 
             this.loadOnWindowsStartupToolStripMenuItem.CheckOnClick = true;
             this.loadOnWindowsStartupToolStripMenuItem.Name = "loadOnWindowsStartupToolStripMenuItem";
-            this.loadOnWindowsStartupToolStripMenuItem.Size = new System.Drawing.Size(249, 24);
+            this.loadOnWindowsStartupToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
             this.loadOnWindowsStartupToolStripMenuItem.Text = "Load on Windows Startup";
             this.loadOnWindowsStartupToolStripMenuItem.Click += new System.EventHandler(this.loadOnWindowsStartupToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(246, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(256, 6);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(249, 24);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
@@ -252,8 +252,8 @@
             this.axWindowsMediaPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer.OcxState")));
             this.axWindowsMediaPlayer.Size = new System.Drawing.Size(249, 45);
             this.axWindowsMediaPlayer.TabIndex = 4;
-            this.axWindowsMediaPlayer.EndOfStream += new AxWMPLib._WMPOCXEvents_EndOfStreamEventHandler(this.SetPlayerInvisible);
-
+            this.axWindowsMediaPlayer.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.SetPlayerInvisible);
+          
             // 
             // SaveB
             // 
