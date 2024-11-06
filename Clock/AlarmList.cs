@@ -91,5 +91,15 @@ namespace Clock
                 sw.WriteLine(alarm.ToFilestring());
             sw.Close();
         }
+
+        public void LoadAlarmsFromFile(string filename)
+        {
+            StreamReader sr = new StreamReader(filename);
+            while( sr.EndOfStream )
+            {
+                string alarm = sr.ReadLine();
+               
+            }
+        }
     }
 }
