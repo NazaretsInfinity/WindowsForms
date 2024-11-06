@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AxWMPLib;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -81,8 +82,14 @@ namespace Clock
                 sw.WriteLine(listBoxAlarms.Items[i]);
             }
             sw.Close();
-            // Properties.Settings.Default.My_alarms.RemoveAt(listBoxAlarms.SelectedIndex + 2);
-            // Properties.Settings.Default.Save();
+
+        }
+        public void SaveAlarmsToFile(string filename)
+        {
+            StreamWriter sw = new StreamWriter("AlarmList.txt");
+            foreach( Alarm alarm in listBoxAlarms.Items)
+                sw.WriteLine(alarm.ToFilestring());
+            sw.Close();
         }
     }
 }

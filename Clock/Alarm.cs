@@ -55,21 +55,21 @@ namespace Clock
         {
             Weekdays = new bool[7];
             string[] comps = stralarm.Split(',');
-            if (comps[0].Contains('/'))
-            {
-                
-                Date  =  DateTime.Parse(comps[0]);
-                Time = DateTime.Parse(comps[1]);
-            }
-            else
-            {
-                Time = DateTime.Parse(comps[0]);
-                for( int i =0; i < comps.Length; ++i)
-                {
-                    if (Alarm.WeekDayNames.Contains(comps[i].Remove(0, 1)))
-                        Weekdays[(Array.IndexOf(Alarm.WeekDayNames, comps[i].Remove(0, 1)))] = true;
-                }
-            }
+            //if (comps[0].Contains('/'))
+            //{
+            //    
+            //    Date  =  DateTime.Parse(comps[0]);
+            //    Time = DateTime.Parse(comps[1]);
+            //}
+            //else
+            //{
+            //    Time = DateTime.Parse(comps[0]);
+             for( int i =0; i < comps.Length; ++i)
+             {
+                 if (Alarm.WeekDayNames.Contains(comps[i].Remove(0, 1)))
+                     Weekdays[(Array.IndexOf(Alarm.WeekDayNames, comps[i].Remove(0, 1)))] = true;
+             }
+            //}
             Filename = comps.Last();
         }
 
