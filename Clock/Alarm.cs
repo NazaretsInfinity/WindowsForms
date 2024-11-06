@@ -64,6 +64,7 @@ namespace Clock
             //else
             //{
             //    Time = DateTime.Parse(comps[0]);
+
              for( int i =0; i < comps.Length; ++i)
              {
                  if (Alarm.WeekDayNames.Contains(comps[i].Remove(0, 1)))

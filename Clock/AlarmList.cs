@@ -21,19 +21,7 @@ namespace Clock
         public AlarmList()
         {
             InitializeComponent();
-            // Properties.Settings.Default.My_alarms.Add(addAlarms.Alarm.ToString());
-            // for (int i = 0; i < Properties.Settings.Default.My_alarms.Count; i++)
-            // {
-            //     ListBoxAlarms.Items.Add(new Alarm(Properties.Settings.Default.My_alarms[i]));
-            // }
-
-            StreamReader sr = new StreamReader("AlarmList.txt");
-            while (!sr.EndOfStream)
-            {
-               ListBoxAlarms.Items.Add(new Alarm(sr.ReadLine()));
-            }
-            sr.Close();
-
+          
 
         }
 
@@ -98,7 +86,7 @@ namespace Clock
             while( sr.EndOfStream )
             {
                 string alarm = sr.ReadLine();
-               
+                ListBoxAlarms.Items.Add(new Alarm(sr.ReadLine()));
             }
         }
     }
