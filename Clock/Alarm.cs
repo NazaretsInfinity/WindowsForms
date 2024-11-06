@@ -73,6 +73,17 @@ namespace Clock
             Filename = comps.Last();
         }
 
+        public string ToFilestring()
+        {
+            string result = "";
+            result += $"{Date}, ";
+            result += $"{Time}, ";
+            result += $"{WeekDaysToString()}";
+            result += $"{Filename}";
+            return result;
+        }
+
+
         public override string ToString()
         {
             string result = " ";
