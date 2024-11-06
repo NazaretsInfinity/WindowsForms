@@ -74,9 +74,15 @@ namespace Clock
 
         private void DeleteB_Click(object sender, EventArgs e)
         {
-           listBoxAlarms.Items.Remove(listBoxAlarms.SelectedItem);         
-           Properties.Settings.Default.My_alarms.RemoveAt(listBoxAlarms.SelectedIndex + 2);
-           Properties.Settings.Default.Save();
+           listBoxAlarms.Items.Remove(listBoxAlarms.SelectedItem);
+            StreamWriter sw = new StreamWriter("AlarmList.txt");
+            for (int i = 0; i < listBoxAlarms.Items.Count; ++i)
+            {
+                sw.WriteLine(listBoxAlarms.Items[i]);
+            }
+            sw.Close();
+            // Properties.Settings.Default.My_alarms.RemoveAt(listBoxAlarms.SelectedIndex + 2);
+            // Properties.Settings.Default.Save();
         }
     }
 }
