@@ -252,7 +252,8 @@
             this.axWindowsMediaPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer.OcxState")));
             this.axWindowsMediaPlayer.Size = new System.Drawing.Size(249, 45);
             this.axWindowsMediaPlayer.TabIndex = 4;
-            this.axWindowsMediaPlayer.Enter += new System.EventHandler(this.axWindowsMediaPlayer1_Enter);
+            this.axWindowsMediaPlayer.EndOfStream += new AxWMPLib._WMPOCXEvents_EndOfStreamEventHandler(this.SetPlayerInvisible);
+
             // 
             // SaveB
             // 

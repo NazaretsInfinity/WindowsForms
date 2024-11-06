@@ -20,7 +20,7 @@ namespace Clock
 {
     public partial class MainForm : Form
     {
-        bool nextalarm = true;
+       
         ColorDialog backgroundColorDialog;
         ColorDialog foregroundColorDialog;
         FontChooser chooseFontDialog;
@@ -37,6 +37,7 @@ namespace Clock
             foregroundColorDialog = new ColorDialog();
             alarmList = new AlarmList();
             alarm = new Alarm();
+            if (alarmList.ListBoxAlarms.Items.Count != 0) GetNextAlarm();
             //Properties.Settings.Default.My_alarms = new System.Collections.Specialized.StringCollection();
             //  LoadSettings();
 
@@ -83,11 +84,8 @@ namespace Clock
         void SetFontDirectory()
         {
             string location = Assembly.GetEntryAssembly().Location; // full address to exe file
-            string path = Path.GetDirectoryName(location); //from address we extract the way to file
-                                                           //MessageBox.Show(Directory.GetCurrentDirectory());
+            string path = Path.GetDirectoryName(location); //from address we extract the way to file (Directory.GetCurrentDirectory());
             Directory.SetCurrentDirectory($"{path}\\..\\..\\Fonts");
-
-            //MessageBox.Show(Directory.GetCurrentDirectory());
         }
 
 
@@ -101,7 +99,7 @@ namespace Clock
             }
             if (alarms.Min() != null)alarm = alarms.Min();
             Console.WriteLine(alarm);
-            nextalarm = false;          
+                
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -116,9 +114,6 @@ namespace Clock
                 labelTime.Text += $"\n{DateTime.Now.DayOfWeek}";
             }
 
-            
-            if(alarmList.ListBoxAlarms.Items.Count!=0 && nextalarm) GetNextAlarm();
-
             int day = (int)DateTime.Now.DayOfWeek;
             day = day == 0 ? 6 : day - 1;
             if (
@@ -126,14 +121,12 @@ namespace Clock
                 DateTime.Now.Hour == alarm.Time.Hour &&
                 DateTime.Now.Minute == alarm.Time.Minute &&
                 DateTime.Now.Second == alarm.Time.Second )
-               // && alarm.WeekDaysToString().Contains(DateTime.Now.DayOfWeek.ToString()))
             {
-                //MessageBox.Show("Alarm up", "Alarm", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Playalarm();
-                nextalarm = true;
-            }
-           
-            if(DateTime.Now.Minute == 0)
+                GetNextAlarm();
+            }  
+            
+            if(DateTime.Now.Second == 0)
             {
                 GetNextAlarm();
                 Console.WriteLine("Minute");
@@ -147,7 +140,7 @@ namespace Clock
         void Playalarm()
         {
             axWindowsMediaPlayer.URL = alarm.Filename;
-            axWindowsMediaPlayer.settings.volume = 5;
+            axWindowsMediaPlayer.settings.volume = 3;
             axWindowsMediaPlayer.Ctlcontrols.play();
             axWindowsMediaPlayer.Visible = true;
 
@@ -163,23 +156,17 @@ namespace Clock
             labelTime.Left = visible ? 26 : this.Width - labelTime.Width - 40;
             labelTime.Top = visible ? 21 : 0;
             axWindowsMediaPlayer.Visible = visible;
-
-            
-
         }
 
         private void HideControls_Click(object sender, EventArgs e)
         {
-            //SetVisibility(false);
             showControlsToolStripMenuItem.Checked = false;
             notifyIconSystemTray.ShowBalloonTip(3, "Crucial information", "To go back click 2 times at the time", ToolTipIcon.Info);
         }
 
         private void labelTime_DoubleClick(object sender, EventArgs e)
         {
-
-            showControlsToolStripMenuItem.Checked = true;
-            //SetVisibility(true);
+            showControlsToolStripMenuItem.Checked = true;           
         }
         private void notifyIconSystemTray_MouseMove(object sender, MouseEventArgs e)
         {
@@ -196,27 +183,23 @@ namespace Clock
         }
 
 
-        //Context menu options events
+        //CONTEXT MENU OPTIONS EVENTS
         private void ShowDateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             cbShowDate.Checked = !cbShowDate.Checked;
         }
-
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void topMostToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
         {
             this.TopMost = topMostToolStripMenuItem.Checked;
         }
-
         private void showControlsToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
         {
             SetVisibility(((ToolStripMenuItem)sender).Checked);
         }
-
         private void notifyIconSystemTray_DoubleClick(object sender, EventArgs e)
         {
             if (!this.TopMost)
@@ -225,6 +208,11 @@ namespace Clock
                 this.TopMost = false;
             }
         }
+        private void alarmsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            alarmList.ShowDialog(this);
+        }
+
 
 
         // LABEL APPEARANCE EVENTS
@@ -268,14 +256,14 @@ namespace Clock
                 register.DeleteValue("THIS ONE");
                 MessageBox.Show("Disabled", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            register.Dispose(); // free resources took by object
+            register.Dispose(); //free resources took by object
         }
 
         private void SaveB_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("Changes Saved", "Saving", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Properties.Settings.Default.Save();
         }
+
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             SaveSettings();
@@ -302,28 +290,19 @@ namespace Clock
         Point CursorLoc { get; set; }
         private void labelTime_MouseDown(object sender, MouseEventArgs e) // 'cause the button is being held down
         {                                                                 // 'click' needs to be released to perform the event.
-           CursorLoc = e.Location;
-           // if(!HideControls.Visible)
-           // this.Location = new Point(0,0);
-           // this.Width = Screen.PrimaryScreen.WorkingArea.Width;
-           // this.Width = Screen.PrimaryScreen.WorkingArea.Height;
+            CursorLoc = e.Location;
         }
-       
-       
 
- 
 
-        private void alarmsToolStripMenuItem_Click(object sender, EventArgs e)
+  
+        void SetPlayerInvisible(object sender , AxWMPLib._WMPOCXEvents_EndOfStreamEvent e)
         {
-            alarmList.ShowDialog(this);
+            axWindowsMediaPlayer.Visible = false;
         }
 
         [DllImport("kernel32.dll")]
         static extern bool AllocConsole();
 
-        private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

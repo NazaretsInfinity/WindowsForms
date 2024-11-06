@@ -32,12 +32,12 @@
             this.dateTimePickerDate = new System.Windows.Forms.DateTimePicker();
             this.checkedListBoxWeek = new System.Windows.Forms.CheckedListBox();
             this.ChooseFileB = new System.Windows.Forms.Button();
-            this.ChooseOkB = new System.Windows.Forms.Button();
             this.ChooseCancelB = new System.Windows.Forms.Button();
             this.dateTimePickerTime = new System.Windows.Forms.DateTimePicker();
             this.checkBoxExactDate = new System.Windows.Forms.CheckBox();
             this.FileNameSound = new System.Windows.Forms.Label();
             this.OpenFileDialogSound = new System.Windows.Forms.OpenFileDialog();
+            this.ChooseOkB = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // dateTimePickerDate
@@ -88,19 +88,6 @@
             this.ChooseFileB.Text = "Choose File";
             this.ChooseFileB.UseVisualStyleBackColor = true;
             this.ChooseFileB.Click += new System.EventHandler(this.ChooseFileB_Click);
-            // 
-            // ChooseOkB
-            // 
-            this.ChooseOkB.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.ChooseOkB.Font = new System.Drawing.Font("Niagara Engraved", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChooseOkB.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.ChooseOkB.Location = new System.Drawing.Point(359, 244);
-            this.ChooseOkB.Name = "ChooseOkB";
-            this.ChooseOkB.Size = new System.Drawing.Size(92, 41);
-            this.ChooseOkB.TabIndex = 3;
-            this.ChooseOkB.Text = "OK ";
-            this.ChooseOkB.UseVisualStyleBackColor = true;
-            this.ChooseOkB.Click += new System.EventHandler(this.ChooseOkB_Click);
             // 
             // ChooseCancelB
             // 
@@ -161,6 +148,20 @@
             // 
             this.OpenFileDialogSound.FileName = "OpenFileDialogSound";
             // 
+            // ChooseOkB
+            // 
+            this.ChooseOkB.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.ChooseOkB.Enabled = false;
+            this.ChooseOkB.Font = new System.Drawing.Font("Niagara Engraved", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChooseOkB.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.ChooseOkB.Location = new System.Drawing.Point(359, 244);
+            this.ChooseOkB.Name = "ChooseOkB";
+            this.ChooseOkB.Size = new System.Drawing.Size(92, 41);
+            this.ChooseOkB.TabIndex = 3;
+            this.ChooseOkB.Text = "OK ";
+            this.ChooseOkB.UseVisualStyleBackColor = true;
+            this.ChooseOkB.Click += new System.EventHandler(this.ChooseOkB_Click);
+            // 
             // AddAlarms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -188,11 +189,11 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerDate;
         private System.Windows.Forms.CheckedListBox checkedListBoxWeek;
         private System.Windows.Forms.Button ChooseFileB;
-        private System.Windows.Forms.Button ChooseOkB;
         private System.Windows.Forms.Button ChooseCancelB;
         private System.Windows.Forms.DateTimePicker dateTimePickerTime;
         private System.Windows.Forms.CheckBox checkBoxExactDate;
         private System.Windows.Forms.Label FileNameSound;
         private System.Windows.Forms.OpenFileDialog OpenFileDialogSound;
+        private System.Windows.Forms.Button ChooseOkB;
     }
 }
