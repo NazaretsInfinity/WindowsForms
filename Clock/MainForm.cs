@@ -36,8 +36,13 @@ namespace Clock
             backgroundColorDialog = new ColorDialog();
             foregroundColorDialog = new ColorDialog();
             alarmList = new AlarmList();
-            alarm = new Alarm();
-            //if (alarmList.ListBoxAlarms.Items.Count != 0)  GetNextAlarm();
+            if (alarmList.ListBoxAlarms.Items.Count != 0) 
+            {
+                alarm = new Alarm(alarmList.ListBoxAlarms.Items[0] as Alarm);
+                GetNextAlarm();
+            }
+            else alarm = new Alarm();
+            
             LoadSettings();
             this.Left = 300;// Screen.PrimaryScreen.Bounds.Width - this.Width;
             this.Top = 0;
